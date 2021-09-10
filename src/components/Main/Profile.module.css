@@ -1,0 +1,15 @@
+.main {
+
+}
+
+.info {
+    display: flex;
+}
+
+.image {
+    width: 100%;
+}
+
+.about {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,19 @@
+.list {
+    position: sticky;
+    top: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.item a {
+    display: block;
+    padding: 10px 20px;
+}
+
+.item:hover {
+    background-color: var(--color-gray-hover);
+}
+
+.active {
+    color: var(--color-white-active);
+}

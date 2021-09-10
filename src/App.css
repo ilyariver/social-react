@@ -1,0 +1,17 @@
+.App-wrap {
+  display: grid;
+  grid-template-areas:
+  "h h"
+  "n m";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+  height: 100vh;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.App-wrap-content {
+  grid-area: m;
+  background-color: var(--color-gray);
+}

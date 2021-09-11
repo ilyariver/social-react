@@ -1,4 +1,5 @@
 import './App.css';
+import 'normalize.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Nav from './components/Navbar/Nav';
@@ -7,17 +8,18 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 
-function App() {
+function App(props) {
+
   return (
     <Router>
       <div className="App-wrap">
         <Header />
         <Nav />
         <div className="App-wrap-content">
-            <Route path='/profile' component={Profile} />
-            <Route path='/dialogs' component={Dialogs} />
-            <Route path='/news' component={News} />
-            <Route path='/music' component={Music} />
+            <Route path='/profile' render={() => <Profile state={props.state.wallPage}/>} />
+            <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogs}/>} />
+            <Route path='/news' render={() => <News />} />
+            <Route path='/music' render={() => <Music />} />
         </div>
       </div>
     </Router>

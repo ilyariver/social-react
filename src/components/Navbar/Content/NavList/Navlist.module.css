@@ -1,8 +1,9 @@
 .list {
-    position: sticky;
-    top: 0;
     list-style: none;
     padding: 0;
+    position: fixed;
+    top: 90px;
+    width: 238px;
 }
 
 .item a {
@@ -16,4 +17,5 @@
 
 .active {
     color: var(--color-white-active);
+    background-color: var(--color-gray-hover);
 }

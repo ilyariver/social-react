@@ -1,4 +1,10 @@
 .nav {
-    grid-area: n;
+    grid-area: navbar;
+}
+
+.nav_wrap {
     background-color: var(--color-gray);
+    height: 100%;
+    position: fixed;
+    width: 238px;
 }

@@ -1,9 +1,13 @@
 .header {
-    grid-area: h;
+    position: fixed;
+    top: 0;
+    width: var(--width-content);
+    grid-area: header;
     background-color: var(--color-gray);
     padding: 5px 20px;
+    box-shadow: 0 7px 10px 0 #00000029;
 }
 
 .image {
-    height: 50px;
+    height: 45px;
 }

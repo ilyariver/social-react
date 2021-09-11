@@ -1,0 +1,44 @@
+.send_message {
+    grid-area: f;
+    position: sticky;
+    border-top: 1px solid var(--color-border);
+    bottom: 0;
+    overflow: hidden;
+    background-color: var(--color-gray);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.input {
+    position: relative;
+    border-radius: 10px;
+    padding: 5px 20px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-black);
+    height: 45px;
+    width: 70%;
+    outline: none;
+    color: var(--color-white);
+}
+
+.input:after {
+    content: "sdfsdf";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    /*background-image: url("../images/smile.svg");*/
+    background-repeat: no-repeat;
+    background-size: 100%;
+    z-index: 2;
+    color: white;
+}
+
+
+.input::placeholder {
+    font-size: 15px;
+}

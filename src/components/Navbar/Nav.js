@@ -4,7 +4,9 @@ import NavList from './Content/NavList/Navlist'
 const Nav = () => {
 	return (
 		<nav className={style.nav}>
-			<NavList />
+			<div className={style.nav_wrap}>
+				<NavList />
+			</div>
 		</nav>
 	)
 }

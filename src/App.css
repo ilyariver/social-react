@@ -1,17 +1,17 @@
 .App-wrap {
   display: grid;
   grid-template-areas:
-  "h h"
-  "n m";
+  "header header"
+  "main navbar";
   grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 3fr 1fr;
   grid-gap: 10px;
   height: 100vh;
-  width: 1400px;
+  width: var(--width-content);
   margin: 0 auto;
 }
 
 .App-wrap-content {
-  grid-area: m;
+  grid-area: main;
   background-color: var(--color-gray);
 }

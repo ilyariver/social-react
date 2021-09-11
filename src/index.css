@@ -11,6 +11,7 @@ html {
 }
 
 :root {
+  /*colors*/
   --color-black: #181a1b;
   --color-gray: #212425;
   --color-gray-hover: #2a2e2f;
@@ -19,6 +20,9 @@ html {
   --color-white: #e8e6e3;
   --color-violet: #7604ab;
   --color-violet-lighten: #9700e0;
+
+  /*sizes*/
+  --width-content: 960px;
 }
 
 body {

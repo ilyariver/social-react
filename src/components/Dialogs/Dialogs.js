@@ -1,28 +1,44 @@
 import style from './Dialog.module.css';
-import DialogItem from './DialogItem/DialogItem';
-import Message from './Message/Message';
 import DialogSendMessage from './DialogSendMessage/DialogSendMessage';
+import {NavLink} from "react-router-dom";
 
 
-const Dialogs = (props) => {
-	console.log(props)
+const Dialogs = (props)  => {
+	const path = props.pathDialog;
+
 	return (
 		<div className={style.dialog_wrap}>
 			<ul className={style.user_list}>
 				{
 					props.state.dialogsData.map(item => {
-						return <DialogItem key={item.user} id={item.id} user={item.user}/>
+						return (
+							<li
+								key={item.user}
+								id={item.id}
+								className={style.user_item}>
+								<NavLink
+									to={path + '/' + item.id}
+									activeClassName={style.active}
+									className={style.user_link}>{item.user}</NavLink>
+							</li>
+						)
 					})
 				}
 			</ul>
 			<ul className={style.messages}>
 				{
 					props.state.messagesData.map(item => {
-						return <Message key={item.user} id={item.id} message={item.message} />
+						return <li
+							key={item.user}
+							id={item.id}
+							className={style.message}>{item.message}</li>
 					})
 				}
 			</ul>
-			<DialogSendMessage />
+			<DialogSendMessage
+				updateDialogInput={props.updateDialogInput}
+				newMessage={props.state.newMessage}
+				addNewDialogMessage={props.addNewDialogMessage} />
 		</div>
 	)
 }

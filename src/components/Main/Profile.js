@@ -8,7 +8,11 @@ const Profile = (state) => {
 			<div className={style.about}>
 				<img className={style.image} src="http://cameralabs.org/media/camera/may/23may2/33_4caaf6d27a395dc6b511eb570f701c60.jpg" alt=""/>
 			</div>
-			<WallArea state={state}/>
+			<WallArea
+				newPostText={state.newPostText.newPostText}
+				wallPage={state.wallPage}
+				addPost={state.addPost}
+				updatePostInput={state.updatePostInput} />
 		</main>
 	)
 }

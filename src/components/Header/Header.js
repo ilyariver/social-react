@@ -1,9 +1,15 @@
 import style from './Header.module.css';
+import {Link} from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+	const headerOption = props.header;
+	console.log(props);
 	return (
 		<header className={style.header}>
-			<img className={style.image} src="https://avatanplus.com/files/resources/original/56b74115318d6152bbd63ad3.png" alt=""/>
+			<Link to={headerOption.path}>
+				<img className={style.image} src={headerOption.avatarSrc} alt={headerOption.alt}/>
+			</Link>
+
 		</header>
 	)
 };

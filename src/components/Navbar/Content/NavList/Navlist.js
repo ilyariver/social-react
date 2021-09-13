@@ -1,21 +1,16 @@
 import style from './Navlist.module.css';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const NavList = () => {
+const NavList = (props) => {
+	const optionsNavMenuList = props.optionsNavMenu;
+
 	return (
 			<ul className={style.list}>
-				<li className={style.item}>
-					<NavLink activeClassName={style.active} to="/profile">Мой профиль</NavLink>
-				</li>
-				<li className={style.item}>
-					<NavLink activeClassName={style.active} to="/dialogs">Сообщения</NavLink>
-				</li>
-				<li className={style.item}>
-					<NavLink activeClassName={style.active} to="/news">Мои новости</NavLink>
-				</li>
-				<li className={style.item}>
-					<NavLink activeClassName={style.active} to="/music">Моя музыка</NavLink>
-				</li>
+				{optionsNavMenuList.map(menuItem => {
+					return <li key={menuItem.name} className={style.item}>
+						<NavLink activeClassName={style.active} to={menuItem.link}>{menuItem.name}</NavLink>
+					</li>
+				})}
 			</ul>
 	)
 };

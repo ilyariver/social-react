@@ -6,13 +6,19 @@
     width: 239px;
 }
 
-.item a {
-    display: block;
+.item:hover {
+    background-color: var(--color-gray-hover);
+}
+
+.text_content {
+    display: flex;
+    align-items: end;
     padding: 10px 20px;
 }
 
-.item:hover {
-    background-color: var(--color-gray-hover);
+.image {
+    margin-right: 15px;
+    width: 15px;
 }
 
 .active {

@@ -9,7 +9,6 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 
 function App(props) {
-
   return (
       <div className="App-wrap">
         <Header header={props.state.header} />
@@ -23,7 +22,7 @@ function App(props) {
              } />
           <Route path='/dialogs' render={() => <Dialogs
             state={props.state.dialogs}
-            pathDialog={props.state.dialogPagePath}
+            pathDialog={props.state.optionsNavMenu}
             updateDialogInput={props.updateDialogInput}
             addNewDialogMessage={props.addNewDialogMessage} />} />
           <Route path='/news' render={() => <News />} />

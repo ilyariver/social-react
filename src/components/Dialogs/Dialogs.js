@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 
 const Dialogs = (props)  => {
-	const path = props.pathDialog;
+	const path = props.pathDialog[1].link;
 
 	return (
 		<div className={style.dialog_wrap}>
@@ -29,7 +29,7 @@ const Dialogs = (props)  => {
 				{
 					props.state.messagesData.map(item => {
 						return <li
-							key={item.user}
+							key={item.message}
 							id={item.id}
 							className={style.message}>{item.message}</li>
 					})

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const Header = (props) => {
 	const headerOption = props.header;
-	console.log(props);
+
 	return (
 		<header className={style.header}>
 			<Link to={headerOption.path}>

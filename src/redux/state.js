@@ -1,4 +1,8 @@
 import { renderDom } from "../render";
+import profile from '../assets/images/profile-icon.svg';
+import message from '../assets/images/message-icon.svg';
+import news from '../assets/images/news-icon.svg';
+import music from '../assets/images/music-icon.svg';
 
 const state = {
 	header: {
@@ -7,12 +11,11 @@ const state = {
 		alt: 'авка',
 	},
 	optionsNavMenu: [
-		{name: 'Мой профиль', link: '/profile', img: '',},
-		{name: 'Сообщения', link: '/dialogs', img: '',},
-		{name: 'Мои новости', link: '/news', img: '',},
-		{name: 'Моя музыка', link: '/music', img: '',},
+		{name: 'Мой профиль', link: '/profile', img: profile,},
+		{name: 'Сообщения', link: '/dialogs', img: message,},
+		{name: 'Мои новости', link: '/news', img: news,},
+		{name: 'Моя музыка', link: '/music', img: music,},
 	],
-	dialogPagePath: this.optionsNavMenu.map(item => item.link === '/dialogs' ? item.link + '/' : ''),
 	dialogs: {
 		newMessage: '',
 		messagesData: [],

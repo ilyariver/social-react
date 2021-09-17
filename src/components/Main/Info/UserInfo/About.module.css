@@ -29,3 +29,7 @@
 .item {
     font-weight: 700;
 }
+
+.item span {
+    font-weight: 400;
+}

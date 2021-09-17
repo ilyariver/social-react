@@ -6,13 +6,19 @@ const Profile = (state) => {
 	return (
 		<main className={style.main}>
 			<div className={style.about}>
-				<img className={style.image} src="http://cameralabs.org/media/camera/may/23may2/33_4caaf6d27a395dc6b511eb570f701c60.jpg" alt=""/>
+				<img
+					className={style.image}
+					src={state.mainBackground[0].backgroundImage}
+					alt={state.mainBackground[0].alt}/>
 			</div>
 			<WallArea
+				profile={state.profile}
 				newPostText={state.newPostText.newPostText}
 				wallPage={state.wallPage}
 				addPost={state.addPost}
-				updatePostInput={state.updatePostInput} />
+				updatePostInput={state.updatePostInput}
+				userName={state.userName}
+				/>
 		</main>
 	)
 }

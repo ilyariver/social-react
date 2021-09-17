@@ -1,7 +1,7 @@
 .user_post {
     display: flex;
     flex-direction: column;
-    width: 370px;
+    width: 100%;
     background-color: var(--color-black);
     padding: 15px 20px;
     margin-bottom: 20px;

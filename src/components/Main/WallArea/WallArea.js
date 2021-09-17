@@ -7,7 +7,7 @@ const WallArea = (state) => {
 
 	return (
 		<div className={style.wall_wrap}>
-			<About />
+			<About profile={state.profile}/>
 			<TextArea newPostText={state.newPostText} addPost={state.addPost} updatePostInput={state.updatePostInput} />
 			<PostMessage wallPage={state.wallPage} />
 		</div>

@@ -7,7 +7,7 @@ const Header = (props) => {
 	return (
 		<header className={style.header}>
 			<Link to={headerOption.path}>
-				<img className={style.image} src={headerOption.avatarSrc} alt={headerOption.alt}/>
+				<img className={style.image} src={headerOption.mainLogo} alt={headerOption.alt}/>
 			</Link>
 
 		</header>

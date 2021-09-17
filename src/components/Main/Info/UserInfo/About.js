@@ -1,17 +1,18 @@
 import style from './About.module.css'
 
-const About = () => {
+const About = (props) => {
+
 	return (
 		<div className={style.info}>
 			<div className={style.image_wrap}>
-				<img className={style.image} src="https://avatarko.ru/img/kartinka/33/igra_Minecraft_32501.jpg" alt=""/>
+				<img className={style.image} src={props.profile.avatar} alt={props.profile.userName}/>
 			</div>
 			<ul className={style.list}>
-				<li className={style.item}>Имя:</li>
-				<li className={style.item}>Возраст:</li>
-				<li className={style.item}>Цвет рук:</li>
-				<li className={style.item}>Наличие волос:</li>
-				<li className={style.item}>Кличество рук:</li>
+				<li className={style.item}>Имя: <span>{props.profile.userName}</span></li>
+				<li className={style.item}>Возраст: <span>{props.profile.age}</span></li>
+				<li className={style.item}>Цвет рук: <span>{props.profile.colorHand}</span></li>
+				<li className={style.item}>Цвет ножных волос: <span>{props.profile.colorFoodHair}</span></li>
+				<li className={style.item}>Цвет бороды: <span>{props.profile.colorBeard}</span></li>
 			</ul>
 		</div>
 

@@ -11,15 +11,21 @@ const Dialogs = (props)  => {
 			<ul className={style.user_list}>
 				{
 					props.state.dialogsData.map(item => {
+						const userStyles = {
+							backgroundImage: `url(${item.avatar})`,
+						}
 						return (
 							<li
-								key={item.user}
+								key={item.userName}
 								id={item.id}
 								className={style.user_item}>
 								<NavLink
 									to={path + '/' + item.id}
 									activeClassName={style.active}
-									className={style.user_link}>{item.user}</NavLink>
+									className={style.user_link}>
+									<span className={style.user_name}>{item.userName}</span>
+									<div style={userStyles} className={style.avatar}></div>
+								</NavLink>
 							</li>
 						)
 					})

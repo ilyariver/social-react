@@ -7,7 +7,13 @@ const PostMessage = (props) => {
 		<div className={style.messages_wrap}>
 			{
 				props.wallPage.postMessage.map(item => {
-					return <Post key={item.message} id={item.id} message={item.message} like={item.like} image={item.image} />
+					return <Post
+						key={item.message}
+						id={item.id}
+						message={item.message}
+						like={item.like}
+						image={item.image}
+						name={item.name}/>
 				})
 			}
 		</div>

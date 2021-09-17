@@ -31,7 +31,7 @@ const TextArea = (props) => {
 					value={props.newPostText} />
 				<button
 					onClick={addPostToWall}
-					className={style.button}>Опубликоват...</button>
+					className={style.button}>+</button>
 			</div>
 		</div>
 	);

@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './TextArea.module.css'
 
-const TextArea = (props) => {
+const TextArea = props => {
 	const newPostElement = React.createRef();
 	const addPostToWall = () => {
 		props.addPost();
@@ -31,7 +31,9 @@ const TextArea = (props) => {
 					value={props.newPostText} />
 				<button
 					onClick={addPostToWall}
-					className={style.button}>+</button>
+					className={style.button}>
+					<img className={style.button_icon} src={props.sendButtonImage} />
+				</button>
 			</div>
 		</div>
 	);

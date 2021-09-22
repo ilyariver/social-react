@@ -1,8 +1,12 @@
-import { renderDom } from "../render";
 import profile from '../assets/images/profile-icon.svg';
 import message from '../assets/images/message-icon.svg';
 import news from '../assets/images/news-icon.svg';
 import music from '../assets/images/music-icon.svg';
+import sendIcon from '../assets/images/send-icon.svg';
+
+let renderDom = () => {
+	console.log('State was changed')
+}
 
 const state = {
 	header: {
@@ -29,6 +33,7 @@ const state = {
 	wallPage: {
 		postMessage: [],
 		newPostText: '',
+		sendButtonImage: sendIcon,
 	},
 	mainBackground: [
 		{
@@ -79,6 +84,10 @@ export const addNewDialogMessage = () => {
 export const updateDialogInput = text => {
 	state.dialogs.newMessage = text;
 	renderDom(state);
+}
+
+export const subscribe = observer => {
+	renderDom = observer
 }
 
 

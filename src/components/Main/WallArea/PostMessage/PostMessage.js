@@ -1,7 +1,7 @@
 import style from './PostMessage.module.css';
 import Post from '../../Posts/Post';
 
-const PostMessage = (props) => {
+const PostMessage = props => {
 
 	return (
 		<div className={style.messages_wrap}>
@@ -13,7 +13,7 @@ const PostMessage = (props) => {
 						message={item.message}
 						like={item.like}
 						image={item.image}
-						name={item.name}/>
+						name={item.name} />
 				})
 			}
 		</div>

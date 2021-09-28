@@ -1,6 +1,6 @@
 import './App.css';
 import 'normalize.css';
-import { Route } from 'react-router-dom';
+import {Redirect, Route} from 'react-router-dom'
 import Header from './components/Header/Header';
 import Nav from './components/Navbar/Nav';
 import Profile from './components/Main/Profile';
@@ -15,9 +15,10 @@ function App(props) {
         <Header header={props.state.header} />
         <Nav optionsNavMenu={props.state.optionsNavMenu} />
         <div className="App-wrap-content">
+          <Redirect exact from='/' to='/profile' />
           <Route path='/profile' render={() => <Profile
             wallPage={props.state.wallPage}
-            addPost={props.addPost}
+            dispatch={props.dispatch}
             newPostText={props.state.wallPage}
             updatePostInput={props.updatePostInput}
             mainBackground={props.state.mainBackground}

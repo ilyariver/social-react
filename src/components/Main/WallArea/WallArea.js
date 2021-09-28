@@ -9,6 +9,7 @@ const WallArea = state => {
 		<div className={style.wall_wrap}>
 			<About profile={state.profile}/>
 			<TextArea
+				wallText={state.wallPage.wallText}
 				newPostText={state.newPostText}
 				addPost={state.addPost}
 				updatePostInput={state.updatePostInput}

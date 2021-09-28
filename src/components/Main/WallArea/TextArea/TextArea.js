@@ -20,7 +20,7 @@ const TextArea = props => {
 
 	return (
 		<div className={style.text_area}>
-			<div className={style.title}>Напиши не шыбько дэбильний текст</div>
+			<div className={style.title}>{props.wallText}</div>
 			<div className={style.send_wrap}>
 				<input
 					onKeyPress={sendToPressKey}

@@ -4,25 +4,22 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import App from './App'
-import state, {addNewDialogMessage, addPost, subscribe, updateDialogInput, updatePostInput} from './redux/state'
+import store from './redux/state'
 
 const renderDom = () => {
 	ReactDOM.render(
 		<Router>
 			<React.StrictMode>
 				<App
-					state={state}
-					addPost={addPost}
-					updatePostInput={updatePostInput}
-					addNewDialogMessage={addNewDialogMessage}
-					updateDialogInput={updateDialogInput} />
+					state={store.getState()}
+					dispatch={store.dispatch.bind(store)}/>
 			</React.StrictMode>
 		</Router>,
 		document.getElementById('root')
 	)
 }
 
-renderDom(state)
-subscribe(renderDom)
+renderDom(store.getState())
+store.subscribe(renderDom)
 
 reportWebVitals()

@@ -3,18 +3,17 @@ import style from './WallArea.module.css'
 import PostMessage from './PostMessage/PostMessage'
 import TextArea from './TextArea/TextArea'
 
-const WallArea = state => {
+const WallArea = props => {
 
 	return (
 		<div className={style.wall_wrap}>
-			<About profile={state.profile}/>
+			<About profile={props.profile}/>
 			<TextArea
-				wallText={state.wallPage.wallText}
-				newPostText={state.newPostText}
-				addPost={state.addPost}
-				updatePostInput={state.updatePostInput}
-				sendButtonImage={state.wallPage.sendButtonImage}/>
-			<PostMessage wallPage={state.wallPage} />
+				wallText={props.wallPage.wallText}
+				newPostText={props.wallPage.newPostText}
+				dispatch={props.dispatch}
+				sendButtonImage={props.wallPage.sendButtonImage}/>
+			<PostMessage wallPage={props.wallPage} />
 		</div>
 	);
 };

@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: var(--color-black);
     padding: 15px 20px;
     margin-bottom: 20px;
     border-radius: 5px;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .info_wrap {
@@ -17,7 +17,6 @@
     justify-content: space-between;
     margin-bottom: 15px;
     padding-bottom: 15px;
-    border-bottom: 1px solid var(--color-border);
 }
 
 .avatar {

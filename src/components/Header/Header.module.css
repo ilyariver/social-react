@@ -1,7 +1,11 @@
 .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     width: var(--width-content);
+    height: 110px;
     grid-area: header;
     background: rgb(89,112,255);
     background: linear-gradient(90deg, rgba(89,112,255,1) 0%, rgba(233,130,255,1) 100%);

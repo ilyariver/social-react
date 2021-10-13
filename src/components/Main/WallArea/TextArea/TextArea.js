@@ -1,10 +1,11 @@
-import React from 'react';
+import React from 'react'
 import style from './TextArea.module.css'
+import { addPostActionCreator, updateNewPostActionCreator } from '../../../../redux/wallpage-reducer'
 
 const TextArea = props => {
 	const newPostElement = React.createRef();
 	const addPostToWall = () => {
-		props.addPost();
+		props.dispatch(addPostActionCreator());
 	}
 
 	const sendToPressKey = e => {
@@ -15,7 +16,7 @@ const TextArea = props => {
 
 	const onChangeInput = () => {
 		const textValue = newPostElement.current.value;
-		props.updatePostInput(textValue);
+		props.dispatch(updateNewPostActionCreator(textValue));
 	}
 
 	return (
@@ -28,7 +29,8 @@ const TextArea = props => {
 					type="text"
 					className={style.input}
 					ref={newPostElement}
-					value={props.newPostText} />
+					value={props.newPostText}
+				/>
 				<button
 					onClick={addPostToWall}
 					className={style.button}>

@@ -7,70 +7,15 @@
     grid-template-rows: 10fr 1fr;
     height: 100%;
     /*padding: 20px 20px 0;*/
-}
-
-.user_list {
-    position: fixed;
-    width: 170px;
-    height: 100vh;
-    grid-area: u;
-    border-right: 1px solid var(--color-border);
-}
-
-.user_item {
-
+    margin-top: 50px;
 }
 
 .user_item:hover {
     background-color: var(--color-gray-hover);
 }
 
-.user_link {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    align-items: center;
-}
-
 .user_link:hover {
     text-shadow: 2px 0 13px var(--color-white);
-}
-
-.avatar {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 190%;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-.user_name {
-
-}
-
-
-.active {
-    background-color: var(--color-gray-hover);
-    text-shadow: 2px 0 13px var(--color-white);
-}
-
-.messages {
-    grid-area: m;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 25px 50px;
-}
-
-.message {
-    background-color: var(--color-black);
-    border-radius: 10px;
-    padding: 15px 30px;
-    margin-bottom: 10px;
 }
 
 

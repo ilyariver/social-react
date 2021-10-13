@@ -4,7 +4,7 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import App from './App'
-import store from './redux/store'
+import store from './redux/redux-store'
 
 const renderDom = () => {
 	ReactDOM.render(
@@ -20,6 +20,10 @@ const renderDom = () => {
 }
 
 renderDom(store.getState())
-store.subscribe(renderDom)
+
+store.subscribe(() => {
+	const state = store.getState()
+	renderDom(state)
+})
 
 reportWebVitals()

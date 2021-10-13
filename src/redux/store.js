@@ -5,6 +5,10 @@ import music from '../assets/images/music-icon.svg'
 import sendIcon from '../assets/images/send-icon.svg'
 import dialogsReducer from './dialogs-reducer'
 import wallPageReducer from './wallpage-reducer'
+import optionNavMenuReducer from './option-nav-menu-reducer'
+import profileReducer from './header-reducer'
+import mainBackgroundReducer from './main-background-reducer'
+import headerReducer from './header-reducer'
 
 const store = {
 	_state: {
@@ -58,14 +62,6 @@ const store = {
 				alt: 'Поляна'
 			}
 		],
-		profile: {
-			userName: 'Мистер Бин',
-			avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxezpAgR2zyrvSyxP6i-Ar02oVtTFZxPrBxACJnhYx9issQEQKzNFDY-m-QPcJLoj8RY&usqp=CAU',
-			age: 25,
-			colorHand: 'Лысэвато-черные',
-			colorFoodHair: 'Белые',
-			colorBeard: 'Густая',
-		}
 	},
 	_renderDom() {
 		console.log('State was changed')
@@ -77,8 +73,12 @@ const store = {
 		this._renderDom = observer
 	},
 	dispatch(action) {
+		debugger
 		this._state.dialogs = dialogsReducer(this._state.dialogs, action)
 		this._state.wallPage = wallPageReducer(this._state.wallPage, action)
+		this._state.header = headerReducer(this._state.header, action)
+		this._state.optionsNavMenu = optionNavMenuReducer(this._state.optionsNavMenu, action)
+		this._state.mainBackground = mainBackgroundReducer(this._state.mainBackground, action)
 		this._renderDom(this._state)
 	}
 }

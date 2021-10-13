@@ -9,7 +9,7 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 
 function App(props) {
-
+  debugger
   return (
       <div className="App-wrap">
         <Header header={props.state.header} />
@@ -21,7 +21,7 @@ function App(props) {
             dispatch={props.dispatch}
             newPostText={props.state.wallPage}
             mainBackground={props.state.mainBackground}
-            profile={props.state.profile}/>
+            profile={props.state.wallPage.profile}/>
              } />
           <Route path='/dialogs' render={() => <Dialogs
             state={props.state.dialogs}

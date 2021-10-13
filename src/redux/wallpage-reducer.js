@@ -1,7 +1,24 @@
+import sendIcon from '../assets/images/send-icon.svg'
+
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_INPUT = 'UPDATE-POST-INPUT'
 
-const wallPageReducer = (state, action) => {
+const initialState = {
+	wallText: '',
+	postMessage: [],
+	newPostText: '',
+	sendButtonImage: sendIcon,
+	profile: {
+		userName: 'Мистер Бин',
+		avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxezpAgR2zyrvSyxP6i-Ar02oVtTFZxPrBxACJnhYx9issQEQKzNFDY-m-QPcJLoj8RY&usqp=CAU',
+		age: 25,
+		colorHand: 'Лысэвато-черные',
+		colorFoodHair: 'Белые',
+		colorBeard: 'Густая',
+	}
+}
+
+const wallPageReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST:
 			const newPost = {

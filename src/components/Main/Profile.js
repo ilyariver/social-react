@@ -2,7 +2,7 @@ import style from './Profile.module.css'
 import WallArea from './WallArea/WallArea'
 
 const Profile = (props) => {
-
+	debugger
 	return (
 		<main className={style.main}>
 			<div className={style.about}>

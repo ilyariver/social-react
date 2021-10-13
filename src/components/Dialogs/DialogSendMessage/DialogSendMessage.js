@@ -1,18 +1,19 @@
 import React from 'react';
 import style from './DialogSendMessage.module.css';
 import '../../../assets/images/smile.svg';
+import { addDialogActionCreator, updateNewDialogActionCreator } from '../../../redux/dialogs-reducer'
 
 const DialogSendMessage = (props) => {
 	const newMessageElement = React.createRef();
 	const sendToPressKey = e => {
 		if (e.key === 'Enter') {
-			props.addNewDialogMessage()
+			props.dispatch(addDialogActionCreator())
 		}
 	}
 
 	const oneChangeInput = () => {
 		const textValueInput = newMessageElement.current.value;
-		props.updateDialogInput(textValueInput);
+		props.dispatch(updateNewDialogActionCreator(textValueInput));
 	}
 
 	return (
@@ -24,7 +25,7 @@ const DialogSendMessage = (props) => {
 				type="text"
 				className={style.input}
 				value={props.newMessage}
-				placeholder="Напиши что-нибудь, дрянь..." />
+				placeholder={props.placeholderText} />
 		</div>
 	);
 };

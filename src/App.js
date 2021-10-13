@@ -20,15 +20,13 @@ function App(props) {
             wallPage={props.state.wallPage}
             dispatch={props.dispatch}
             newPostText={props.state.wallPage}
-            updatePostInput={props.updatePostInput}
             mainBackground={props.state.mainBackground}
             profile={props.state.profile}/>
              } />
           <Route path='/dialogs' render={() => <Dialogs
             state={props.state.dialogs}
             pathDialog={props.state.optionsNavMenu}
-            updateDialogInput={props.updateDialogInput}
-            addNewDialogMessage={props.addNewDialogMessage} />} />
+            dispatch={props.dispatch} />}/>
           <Route path='/news' render={() => <News />} />
           <Route path='/music' render={() => <Music />} />
         </div>

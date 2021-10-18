@@ -11,6 +11,7 @@ const renderDom = () => {
 		<Router>
 			<React.StrictMode>
 				<App
+					store={store}
 					state={store.getState()}
 					dispatch={store.dispatch.bind(store)}/>
 			</React.StrictMode>

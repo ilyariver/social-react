@@ -9,7 +9,6 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 
 function App(props) {
-  debugger
   return (
       <div className="App-wrap">
         <Header header={props.state.header} />
@@ -17,6 +16,7 @@ function App(props) {
         <div className="App-wrap-content">
           <Redirect exact from='/' to='/profile' />
           <Route path='/profile' render={() => <Profile
+            store={props.store}
             wallPage={props.state.wallPage}
             dispatch={props.dispatch}
             newPostText={props.state.wallPage}

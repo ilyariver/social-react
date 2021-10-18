@@ -3,20 +3,19 @@ import style from './TextArea.module.css'
 import { addPostActionCreator, updateNewPostActionCreator } from '../../../../redux/wallpage-reducer'
 
 const TextArea = props => {
-	const newPostElement = React.createRef();
 	const addPostToWall = () => {
-		props.dispatch(addPostActionCreator());
+		props.addPostToWall()
 	}
 
 	const sendToPressKey = e => {
 		if (e.key === 'Enter') {
-			addPostToWall();
+			props.addPostToWall();
 		}
 	}
 
-	const onChangeInput = () => {
-		const textValue = newPostElement.current.value;
-		props.dispatch(updateNewPostActionCreator(textValue));
+	const onChangeInput = e => {
+		const textValue = e.target.value
+		props.onChangeInput(textValue)
 	}
 
 	return (
@@ -28,13 +27,14 @@ const TextArea = props => {
 					onChange={onChangeInput}
 					type="text"
 					className={style.input}
-					ref={newPostElement}
 					value={props.newPostText}
 				/>
 				<button
 					onClick={addPostToWall}
 					className={style.button}>
-					<img className={style.button_icon} src={props.sendButtonImage} />
+					<img
+						className={style.button_icon}
+						src={props.sendButtonIcon} />
 				</button>
 			</div>
 		</div>

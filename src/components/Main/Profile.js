@@ -2,7 +2,6 @@ import style from './Profile.module.css'
 import WallArea from './WallArea/WallArea'
 
 const Profile = (props) => {
-	debugger
 	return (
 		<main className={style.main}>
 			<div className={style.about}>
@@ -12,6 +11,7 @@ const Profile = (props) => {
 					alt={props.mainBackground[0].alt}/>
 			</div>
 			<WallArea
+				store={props.store}
 				profile={props.profile}
 				newPostText={props.newPostText.newPostText}
 				wallPage={props.wallPage}

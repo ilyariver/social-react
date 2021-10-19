@@ -1,22 +1,17 @@
 import style from './Dialog.module.css';
-import DialogSendMessage from './DialogSendMessage/DialogSendMessage';
+import DialogSendMessageContainer from './DialogSendMessage/DialogSendMessageContainer';
 import UserList from './UserList/UserList'
 import MessagesList from './MessagesList/MessagesList'
 
-
-
 const Dialogs = props  => {
-	const path = props.pathDialog[1].link;
-
+	const path = props.store.getState().optionsNavMenu[1].link
+	const {messagesData, dialogsData} = props.store.getState().dialogs
 
 	return (
 		<div className={style.dialog_wrap}>
-			<UserList path={path} dialogsData={props.state.dialogsData}/>
-			<MessagesList messagesData={props.state.messagesData}/>
-			<DialogSendMessage
-				placeholderText={props.state.placeholderText}
-				newMessage={props.state.newMessage}
-				dispatch={props.dispatch} />
+			<UserList path={path} dialogsData={dialogsData}/>
+			<MessagesList messagesData={messagesData} />
+			<DialogSendMessageContainer store={props.store} />
 		</div>
 	)
 }

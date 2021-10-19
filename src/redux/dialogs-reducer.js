@@ -5,7 +5,11 @@ const initialState = {
 	newMessage: '',
 	messagesData: [],
 	dialogsData: [
-		{id: 1, userName: 'Димка', avatar: 'https://hiphop4real.com/wp-content/uploads/2017/06/JAY-Z.jpg'},
+		{
+			id: 1,
+			userName: 'Димка',
+			avatar: 'https://hiphop4real.com/wp-content/uploads/2017/06/JAY-Z.jpg'
+		},
 		{
 			id: 2,
 			userName: 'Петька',
@@ -16,7 +20,11 @@ const initialState = {
 			userName: 'Вовка',
 			avatar: 'https://cityopen.ru/wp-content/uploads/2019/09/69358797_400416377283420_17787512026880791_n.jpg'
 		},
-		{id: 4, userName: 'Том', avatar: 'https://a.d-cd.net/afb2b6es-960.jpg'},
+		{
+			id: 4,
+			userName: 'Том',
+			avatar: 'https://a.d-cd.net/afb2b6es-960.jpg'
+		},
 	],
 	placeholderText: 'Напишите что-нибудь...',
 }
@@ -28,6 +36,7 @@ const dialogsReducer = (state = initialState, action) => {
 				id: state.messagesData.length + 1,
 				message: state.newMessage,
 			}
+			if (!state.newMessage.trim()) return state
 			state.messagesData.push(newDialogMessage)
 			state.newMessage = ''
 			return state

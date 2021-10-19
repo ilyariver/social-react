@@ -11,7 +11,6 @@ const initialState = [
 ]
 
 const optionNavMenuReducer = (state = initialState, action) => {
-
 	return state
 }
 

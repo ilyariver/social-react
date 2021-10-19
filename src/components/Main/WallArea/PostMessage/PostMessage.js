@@ -2,7 +2,7 @@ import style from './PostMessage.module.css';
 import Post from '../../Posts/Post';
 
 const PostMessage = props => {
-	debugger
+
 	return (
 		<div className={style.messages_wrap}>
 			{

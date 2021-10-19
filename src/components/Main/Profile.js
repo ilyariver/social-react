@@ -2,22 +2,18 @@ import style from './Profile.module.css'
 import WallArea from './WallArea/WallArea'
 
 const Profile = (props) => {
+	const {backgroundImage, alt} = props.store.getState().mainBackground[0]
+
 	return (
 		<main className={style.main}>
 			<div className={style.about}>
 				<img
 					className={style.image}
-					src={props.mainBackground[0].backgroundImage}
-					alt={props.mainBackground[0].alt}/>
+					src={backgroundImage}
+					alt={alt}/>
 			</div>
 			<WallArea
-				store={props.store}
-				profile={props.profile}
-				newPostText={props.newPostText.newPostText}
-				wallPage={props.wallPage}
-				dispatch={props.dispatch}
-				userName={props.userName}
-				/>
+				store={props.store}/>
 		</main>
 	)
 }

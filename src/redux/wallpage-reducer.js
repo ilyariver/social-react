@@ -29,7 +29,7 @@ const wallPageReducer = (state = initialState, action) => {
 				like: 0,
 				image: state.profile.avatar,
 			}
-			if (!state.newPostText.trim()) return
+			if (!state.newPostText.trim()) return state
 			state.postMessage.push(newPost)
 			state.newPostText = ''
 			return state

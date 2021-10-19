@@ -15,18 +15,8 @@ function App(props) {
         <Nav optionsNavMenu={props.state.optionsNavMenu} />
         <div className="App-wrap-content">
           <Redirect exact from='/' to='/profile' />
-          <Route path='/profile' render={() => <Profile
-            store={props.store}
-            wallPage={props.state.wallPage}
-            dispatch={props.dispatch}
-            newPostText={props.state.wallPage}
-            mainBackground={props.state.mainBackground}
-            profile={props.state.wallPage.profile}/>
-             } />
-          <Route path='/dialogs' render={() => <Dialogs
-            state={props.state.dialogs}
-            pathDialog={props.state.optionsNavMenu}
-            dispatch={props.dispatch} />}/>
+          <Route path='/profile' render={() => <Profile store={props.store}/>} />
+          <Route path='/dialogs' render={() => <Dialogs store={props.store}/>} />
           <Route path='/news' render={() => <News />} />
           <Route path='/music' render={() => <Music />} />
         </div>

@@ -4,14 +4,14 @@ import PostMessage from './PostMessage/PostMessage'
 import TextAreaContainer from "./TextArea/TextAreaContainer"
 
 const WallArea = props => {
-
+	const {wallPage} = props.store.getState()
 	return (
 		<div className={style.wall_wrap}>
-			<About profile={props.profile}/>
+			<About profile={wallPage.profile}/>
 			<TextAreaContainer
 				store={props.store}
 			/>
-			<PostMessage wallPage={props.wallPage} />
+			<PostMessage wallPage={wallPage} />
 		</div>
 	);
 };

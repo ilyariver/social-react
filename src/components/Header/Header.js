@@ -1,27 +1,37 @@
 import style from './Header.module.css';
 import {Link} from "react-router-dom";
+import StoreContext from '../../StoreContext'
 
-const Header = (props) => {
-	const headerOption = props.header;
+const Header = () => {
 
 	return (
-		<header className={style.header}>
-			<Link to={headerOption.path}>
-				<img className={style.image} src={headerOption.mainLogo} alt={headerOption.alt}/>
-			</Link>
-			<ul className={style.circles}>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-		</header>
+		<StoreContext>
+			{
+				store => {
+					const headerOption = store.getState().header;
+					debugger
+					return (
+						<header className={style.header}>
+							<Link to={headerOption.path}>
+								<img className={style.image} src={headerOption.mainLogo} alt={headerOption.alt}/>
+							</Link>
+							<ul className={style.circles}>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</header>
+					)
+				}
+			}
+		</StoreContext>
 	)
 };
 

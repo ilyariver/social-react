@@ -20,11 +20,10 @@ const renderDom = () => {
 	)
 }
 
-renderDom(store.getState())
+renderDom()
 
 store.subscribe(() => {
-	const state = store.getState()
-	renderDom(state)
+	renderDom()
 })
 
 reportWebVitals()

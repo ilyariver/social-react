@@ -2,11 +2,11 @@ import style from './PostMessage.module.css';
 import Post from '../../Posts/Post';
 
 const PostMessage = props => {
-
+	const { wallPage } = props
 	return (
 		<div className={style.messages_wrap}>
 			{
-				props.wallPage.postMessage.map(item => {
+				wallPage.postMessage.map(item => {
 					return <Post
 						key={item.message}
 						id={item.id}
@@ -17,7 +17,7 @@ const PostMessage = props => {
 				})
 			}
 		</div>
-	);
-};
+	)
+}
 
 export default PostMessage;

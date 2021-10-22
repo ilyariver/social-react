@@ -42,6 +42,7 @@ const dialogsReducer = (state = initialState, action) => {
 			return state
 		case UPDATE_DIALOG_INPUT:
 			state.newMessage = action.text
+			state.loading = true
 			return state
 		default:
 			return state

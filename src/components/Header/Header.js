@@ -5,11 +5,10 @@ import StoreContext from '../../StoreContext'
 const Header = () => {
 
 	return (
-		<StoreContext>
+		<StoreContext.Consumer>
 			{
 				store => {
 					const headerOption = store.getState().header;
-					debugger
 					return (
 						<header className={style.header}>
 							<Link to={headerOption.path}>
@@ -31,7 +30,7 @@ const Header = () => {
 					)
 				}
 			}
-		</StoreContext>
+		</StoreContext.Consumer>
 	)
 };
 

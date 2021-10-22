@@ -1,16 +1,14 @@
 import style from './Profile.module.css'
 import WallArea from './WallArea/WallArea'
-import Provider from '../../StoreContext'
+import StoreContext from '../../StoreContext'
 
 const Profile = () => {
 
 	return (
-		<Provider.Consumer>
+		<StoreContext.Consumer>
 			{
 				store => {
-					const {backgroundImage, alt} = store.getState().mainBackground[0]
-					debugger
-					console.log(store)
+					const { backgroundImage, alt } = store.getState().mainBackground[0]
 					return (
 						<main className={style.main}>
 							<div className={style.about}>
@@ -19,13 +17,12 @@ const Profile = () => {
 									src={backgroundImage}
 									alt={alt}/>
 							</div>
-							<WallArea
-								store={store}/>
+							<WallArea store={store}/>
 						</main>
 					)
 				}
 			}
-		</Provider.Consumer>
+		</StoreContext.Consumer>
 	)
 }
 

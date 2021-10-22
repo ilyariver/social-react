@@ -6,7 +6,6 @@ const initialStore = [
 ]
 
 const mainBackgroundReducer = (state = initialStore, action) => {
-
 	return state
 }
 

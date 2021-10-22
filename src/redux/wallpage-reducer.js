@@ -21,7 +21,6 @@ const initialState = {
 const wallPageReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST:
-			debugger
 			const newPost = {
 				id: state.postMessage.length + 1,
 				message: state.newPostText,

@@ -1,8 +1,10 @@
 import style from './PostMessage.module.css';
 import Post from '../../Posts/Post';
+import {useSelector} from 'react-redux'
 
-const PostMessage = props => {
-	const { wallPage } = props
+const PostMessage = () => {
+	const wallPage = useSelector(state => state.wallPage)
+
 	return (
 		<div className={style.messages_wrap}>
 			{

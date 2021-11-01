@@ -1,8 +1,9 @@
 import style from './UserList.module.css'
 import { NavLink } from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
-const UserList = props => {
-	const { dialogs, optionsNavMenu } = props.getState
+const UserList = () => {
+	const { dialogs, optionsNavMenu } = useSelector(state => state)
 	const transliterate = text => {
 		text = text
 			.replace(/\u0401/g, 'YO')

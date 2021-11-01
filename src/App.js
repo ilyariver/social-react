@@ -11,8 +11,8 @@ import Music from './components/Music/Music';
 function App() {
   return (
       <div className="App-wrap">
-        {/*<Header />*/}
-        {/*<Nav />*/}
+        <Header />
+        <Nav />
         <div className="App-wrap-content">
           <Redirect exact from='/' to='/profile' />
           <Route path='/profile' render={() => <Profile />} />

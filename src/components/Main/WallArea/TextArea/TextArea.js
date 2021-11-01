@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './TextArea.module.css'
-import { addPostActionCreator, updateNewPostActionCreator } from '../../../../redux/wallpage-reducer'
 
 const TextArea = props => {
 	const addPostToWall = () => {
@@ -34,7 +33,7 @@ const TextArea = props => {
 					className={style.button}>
 					<img
 						className={style.button_icon}
-						src={props.sendButtonIcon} />
+						src={props.sendButtonImage} />
 				</button>
 			</div>
 		</div>

@@ -1,7 +1,8 @@
 import style from './MessagesList.module.css'
+import { useSelector } from 'react-redux'
 
-const MessagesList = props => {
-	const {messagesData} = props.dialogs
+const MessagesList = () => {
+	const messagesData = useSelector(state => state.dialogs.messagesData)
 
 	return (
 		<ul className={style.messages}>

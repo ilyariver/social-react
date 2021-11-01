@@ -3,16 +3,17 @@ import style from './DialogSendMessage.module.css';
 import '../../../assets/images/smile.svg';
 
 const DialogSendMessage = (props) => {
-	const {dialogs, placeholderText} = props
+	const {newMessage, placeholderText} = props
+
 	const sendToPressKey = e => {
 		if (e.key === 'Enter') {
-			props.onSendToPressKey()
+			props.sendToPressKey()
 		}
 	}
 
 	const changeInput = event => {
 		const textValueInput = event.target.value
-		props.onChangeInput(textValueInput)
+		props.changeInput(textValueInput)
 	}
 
 	return (
@@ -22,7 +23,7 @@ const DialogSendMessage = (props) => {
 				onChange={changeInput}
 				type="text"
 				className={style.input}
-				value={dialogs}
+				value={newMessage}
 				placeholder={placeholderText} />
 		</div>
 	);

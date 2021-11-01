@@ -1,6 +1,7 @@
 import style from './About.module.css'
+import {useSelector} from 'react-redux'
 
-const About = props => {
+const About = () => {
 	const {
 		avatar,
 		userName,
@@ -8,7 +9,7 @@ const About = props => {
 		colorHand,
 		colorFoodHair,
 		colorBeard
-	} = props.profile
+	} = useSelector(state => state.wallPage.profile)
 
 	return (
 		<div className={style.info}>

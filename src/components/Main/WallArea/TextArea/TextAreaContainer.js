@@ -1,32 +1,9 @@
-import React from 'react'
 import { addPostActionCreator, updateNewPostActionCreator } from '../../../../redux/wallpage-reducer'
 import TextArea from "./TextArea";
-import {connect} from "react-redux";
-// import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
-// import mapDispatchToProps from "react-redux/lib/connect/mapDispatchToProps";
-
-
-//const TextAreaContainer = props => {
-// 	const store = props.store
-// 	const { newPostText,sendButtonImage } = store.getState().wallPage
-// 	const addPostToWall = () => {
-// 		store.dispatch(addPostActionCreator());
-// 	}
-//
-// 	const onChangeInput = textValue => {
-// 		store.dispatch(updateNewPostActionCreator(textValue));
-// 	}
-// 	return (
-// 		<TextArea
-// 			onChangeInput={onChangeInput}
-// 			addPostToWall={addPostToWall}
-// 			newPostText={newPostText}
-// 			sendButtonIcon={sendButtonImage}/>
-// 	)
-// }
+import { connect } from "react-redux";
 
 const mapStateToProps = state => {
-	const { newPostText,sendButtonImage } = state.getState().wallPage
+	const { newPostText,sendButtonImage } = state.wallPage
 
 	return {
 		newPostText,

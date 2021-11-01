@@ -2,13 +2,13 @@ import style from './Dialog.module.css';
 import DialogSendMessageContainer from './DialogSendMessage/DialogSendMessageContainer';
 import UserList from './UserList/UserList'
 import MessagesList from './MessagesList/MessagesList'
-import StoreContext from "../../StoreContext";
+import {Provider} from "react-redux";
 
 const Dialogs = () => {
 
 
 	return (
-		<StoreContext.Consumer>
+		<Provider>
 			{
 				store => {
 					const getState = store.getState()
@@ -21,7 +21,7 @@ const Dialogs = () => {
 					)
 				}
 			}
-		</StoreContext.Consumer>
+		</Provider>
 	)
 }
 

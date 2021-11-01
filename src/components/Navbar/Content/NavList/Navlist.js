@@ -1,12 +1,13 @@
 import React from 'react'
 import style from './Navlist.module.css';
 import { NavLink } from 'react-router-dom';
-import Provider from '../../../../StoreContext'
+import { Provider } from "react-redux";
 
 const NavList = () => {
 	return (
-		<Provider.Consumer>
+		<Provider>
 			{
+
 				store => {
 					const optionsNavMenuList = store.getState().optionsNavMenu;
 					return (
@@ -30,7 +31,7 @@ const NavList = () => {
 					)
 				}
 			}
-		</Provider.Consumer>
+		</Provider>
 	)
 };
 

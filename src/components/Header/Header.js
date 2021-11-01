@@ -1,11 +1,11 @@
 import style from './Header.module.css';
 import {Link} from "react-router-dom";
-import StoreContext from '../../StoreContext'
+import {Provider} from "react-redux";
 
 const Header = () => {
 
 	return (
-		<StoreContext.Consumer>
+		<Provider>
 			{
 				store => {
 					const headerOption = store.getState().header;
@@ -30,7 +30,7 @@ const Header = () => {
 					)
 				}
 			}
-		</StoreContext.Consumer>
+		</Provider>
 	)
 };
 

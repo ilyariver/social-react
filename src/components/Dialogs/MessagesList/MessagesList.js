@@ -1,10 +1,13 @@
 import style from './MessagesList.module.css'
+import { useSelector } from 'react-redux'
 
-const MessagesList = props => {
+const MessagesList = () => {
+	const messagesData = useSelector(state => state.dialogs.messagesData)
+
 	return (
 		<ul className={style.messages}>
 			{
-				props.messagesData.map(item => {
+				messagesData.map(item => {
 					return <li
 						key={item.message}
 						id={item.id}

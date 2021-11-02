@@ -1,33 +1,31 @@
-import React from 'react';
-import style from './DialogSendMessage.module.css';
-import '../../../assets/images/smile.svg';
-import { addDialogActionCreator, updateNewDialogActionCreator } from '../../../redux/dialogs-reducer'
+import React from 'react'
+import style from './DialogSendMessage.module.css'
 
 const DialogSendMessage = (props) => {
-	const newMessageElement = React.createRef();
+	const {newMessage, placeholderText} = props
+
 	const sendToPressKey = e => {
 		if (e.key === 'Enter') {
-			props.dispatch(addDialogActionCreator())
+			props.sendToPressKey()
 		}
 	}
 
-	const oneChangeInput = () => {
-		const textValueInput = newMessageElement.current.value;
-		props.dispatch(updateNewDialogActionCreator(textValueInput));
+	const changeInput = event => {
+		const textValueInput = event.target.value
+		props.changeInput(textValueInput)
 	}
 
 	return (
 		<div className={style.send_message}>
 			<input
-				ref={newMessageElement}
 				onKeyPress={sendToPressKey}
-				onChange={oneChangeInput}
+				onChange={changeInput}
 				type="text"
 				className={style.input}
-				value={props.newMessage}
-				placeholder={props.placeholderText} />
+				value={newMessage}
+				placeholder={placeholderText} />
 		</div>
-	);
-};
+	)
+}
 
-export default DialogSendMessage;
+export default DialogSendMessage

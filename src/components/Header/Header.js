@@ -1,8 +1,9 @@
-import style from './Header.module.css';
-import {Link} from "react-router-dom";
+import style from './Header.module.css'
+import {Link} from "react-router-dom"
+import {useSelector} from 'react-redux'
 
-const Header = (props) => {
-	const headerOption = props.header;
+const Header = () => {
+	const headerOption = useSelector(state => state.header)
 
 	return (
 		<header className={style.header}>
@@ -23,6 +24,6 @@ const Header = (props) => {
 			</ul>
 		</header>
 	)
-};
+}
 
-export default Header;
+export default Header

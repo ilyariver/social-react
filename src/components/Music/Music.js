@@ -1,6 +1,6 @@
 import style from './Music.module.css'
 
-const Music = (props) => {
+const Music = () => {
 
 	return (
 		<div className={style.music_wrap}>Music</div>

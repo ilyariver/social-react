@@ -1,6 +1,5 @@
-import React from 'react';
-import style from './DialogSendMessage.module.css';
-import '../../../assets/images/smile.svg';
+import React from 'react'
+import style from './DialogSendMessage.module.css'
 
 const DialogSendMessage = (props) => {
 	const {newMessage, placeholderText} = props
@@ -26,7 +25,7 @@ const DialogSendMessage = (props) => {
 				value={newMessage}
 				placeholder={placeholderText} />
 		</div>
-	);
-};
+	)
+}
 
-export default DialogSendMessage;
+export default DialogSendMessage

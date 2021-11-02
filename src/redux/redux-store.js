@@ -4,6 +4,7 @@ import wallPageReducer from './wallpage-reducer'
 import headerReducer from './header-reducer'
 import optionNavMenuReducer from './option-nav-menu-reducer'
 import mainBackgroundReducer from './main-background-reducer'
+import usersReducer from './users-reducer'
 
 let reducers = combineReducers({
 	dialogs: dialogsReducer,
@@ -11,6 +12,7 @@ let reducers = combineReducers({
 	header: headerReducer,
 	optionsNavMenu: optionNavMenuReducer,
 	mainBackground: mainBackgroundReducer,
+	users: usersReducer,
 })
 
 let store = createStore(reducers)

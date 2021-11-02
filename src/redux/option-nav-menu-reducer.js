@@ -8,6 +8,7 @@ const initialState = [
 	{name: 'Сообщения', link: '/dialogs', img: message,},
 	{name: 'Мои новости', link: '/news', img: news,},
 	{name: 'Моя музыка', link: '/music', img: music,},
+	{name: 'Юзеры', link: '/users', img: music,},
 ]
 
 const optionNavMenuReducer = (state = initialState, action) => {

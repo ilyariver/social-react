@@ -9,7 +9,9 @@ const NavList = () => {
 	return (
 		<ul className={style.list}>
 			{optionsNavMenuList.map(menuItem => {
-				return <li key={menuItem.name} className={style.item}>
+				return <li
+					key={menuItem.name}
+					className={style.item}>
 
 					<NavLink
 						className={style.text_content}

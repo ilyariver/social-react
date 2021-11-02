@@ -89,7 +89,7 @@ const UserList = () => {
 							id={item.id}
 							className={style.user_item}>
 							<NavLink
-								to={optionsNavMenu[1].link + '/' + transliterate(item.userName).toLowerCase()}
+								to={optionsNavMenu[1].link + '/' + transliterate(item.userName)}
 								activeClassName={style.active}
 								className={style.user_link}>
 								<span className={style.user_name}>{item.userName}</span>

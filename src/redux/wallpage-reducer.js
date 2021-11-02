@@ -20,7 +20,7 @@ const initialState = {
 
 const wallPageReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case ADD_POST: {
+		case ADD_POST:
 			const newPost = {
 				id: state.postMessage.length + 1,
 				message: state.newPostText,
@@ -29,17 +29,16 @@ const wallPageReducer = (state = initialState, action) => {
 				image: state.profile.avatar,
 			}
 			if (!state.newPostText.trim()) return state
-			const stateCopy = {...state}
-			stateCopy.postMessage = [...state.postMessage]
-			stateCopy.postMessage.push(newPost)
-			stateCopy.newPostText = ''
-			return stateCopy
-		}
-		case UPDATE_POST_INPUT: {
-			const stateCopy = {...state}
-			stateCopy.newPostText = action.text
-			return stateCopy
-		}
+			return {
+				...state,
+				postMessage: [...state.postMessage, newPost],
+				newPostText: ''
+			}
+		case UPDATE_POST_INPUT:
+			return {
+				...state,
+				newPostText: action.text
+			}
 		default:
 			return state
 	}

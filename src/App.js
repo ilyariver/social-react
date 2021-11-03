@@ -10,19 +10,19 @@ import Music from './components/Music/Music'
 import UsersContainer from './components/Users/UsersContainer'
 
 function App() {
-  return (
-      <div className="App-wrap">
-        <Header />
-        <Nav />
-        <div className="App-wrap-content">
-            <Route path='/profile' render={() => <Profile />} />
-            <Route path='/dialogs' render={() => <Dialogs />} />
-            <Route path='/news' render={() => <News />} />
-            <Route path='/music' render={() => <Music />} />
-            <Route path='/users' render={() => <UsersContainer />} />
-        </div>
-      </div>
-  );
+	return (
+		<div className="App-wrap">
+			<Header/>
+			<Nav/>
+			<div className="App-wrap-content">
+				<Route path="/profile" render={() => <Profile/>}/>
+				<Route path="/dialogs" render={() => <Dialogs/>}/>
+				<Route path="/news" render={() => <News/>}/>
+				<Route path="/music" render={() => <Music/>}/>
+				<Route path="/users" render={() => <UsersContainer/>}/>
+			</div>
+		</div>
+	)
 }
 
-export default App;
+export default App

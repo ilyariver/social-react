@@ -23,6 +23,8 @@ html {
   --color-white: #e8e6e3;
   --color-violet: #7604ab;
   --color-violet-lighten: #9700e0;
+  --color-active: #00e00b;
+  --color-absent: #e00000;
 
   /*sizes*/
   --width-content: 960px;

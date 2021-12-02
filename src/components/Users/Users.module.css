@@ -8,10 +8,9 @@
 
 .item {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 20px;
-    padding: 20px 30px;
-    border-radius: 10px;
+    padding: 20px 40px;
+    border-radius: 45px;
     border: 2px solid var(--color-border);
 }
 
@@ -38,6 +37,7 @@
     border: none;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .follow_btn:hover {
@@ -46,4 +46,54 @@
 
 .follow_btn:active {
     background-color: #7604ab;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.userName {
+    font-weight: 600;
+}
+
+.userStatus {
+    display: flex;
+    align-items: center;
+}
+
+.statusText {
+
+}
+
+.user {
+    
+}
+
+.userActivity {
+    background-color: var(--color-active);
+}
+
+.userAbsent {
+    background-color: var(--color-absent);
+}
+
+.location {
+
+}
+
+.country {
+
+}
+
+.city {
+
 }

@@ -7,6 +7,7 @@ import Profile from './components/Main/Profile'
 import Dialogs from './components/Dialogs/Dialogs'
 import News from './components/News/News'
 import Music from './components/Music/Music'
+import Users from './components/Users/Users'
 import UsersContainer from './components/Users/UsersContainer'
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
 				<Route path="/dialogs" render={() => <Dialogs/>}/>
 				<Route path="/news" render={() => <News/>}/>
 				<Route path="/music" render={() => <Music/>}/>
-				<Route path="/users" render={() => <UsersContainer/>}/>
+				<Route path="/users" render={() => <Users/>}/>
 			</div>
 		</div>
 	)

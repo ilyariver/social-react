@@ -20,7 +20,7 @@ function App() {
 				<Route path="/dialogs" render={() => <Dialogs/>}/>
 				<Route path="/news" render={() => <News/>}/>
 				<Route path="/music" render={() => <Music/>}/>
-				<Route path="/users" render={() => <Users/>}/>
+				<Route path="/users" render={() => <UsersContainer/>}/>
 			</div>
 		</div>
 	)

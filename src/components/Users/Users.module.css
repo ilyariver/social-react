@@ -8,10 +8,10 @@
 
 .item {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    background-color: var(--color-gray-hover);
     padding: 20px 40px;
     border-radius: 45px;
-    border: 2px solid var(--color-border);
 }
 
 .image_wrap {
@@ -65,7 +65,7 @@
     font-weight: 600;
 }
 
-.userStatus {
+.userStatusContent {
     display: flex;
     align-items: center;
 }
@@ -74,8 +74,11 @@
 
 }
 
-.user {
-    
+.userStatus {
+    margin-right: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
 }
 
 .userActivity {
@@ -87,11 +90,13 @@
 }
 
 .location {
-
+    width: 20%;
 }
 
 .country {
-
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #a9a196;
 }
 
 .city {

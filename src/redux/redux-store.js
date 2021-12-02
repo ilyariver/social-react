@@ -12,7 +12,7 @@ let reducers = combineReducers({
 	header: headerReducer,
 	optionsNavMenu: optionNavMenuReducer,
 	mainBackground: mainBackgroundReducer,
-	users: usersReducer,
+	usersPage: usersReducer,
 })
 
 let store = createStore(reducers)

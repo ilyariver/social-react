@@ -1,6 +1,6 @@
 import React from 'react'
-import style from './Navlist.module.css';
-import { NavLink } from 'react-router-dom';
+import style from './Navlist.module.css'
+import { NavLink } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 
 const NavList = () => {

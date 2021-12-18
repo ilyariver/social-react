@@ -1,7 +1,46 @@
 import React from 'react'
 import style from './Users.module.css'
 
+let first = true
 const Users = props => {
+
+  if (first) {
+    first = false
+    props.setUsers([
+      {
+        id: 1,
+        followed: false,
+        name: 'Димка',
+        status: {text: 'Я на месте', symbol: true},
+        location: {city: 'Москва', country: 'Россия'},
+        avatar: 'https://hiphop4real.com/wp-content/uploads/2017/06/JAY-Z.jpg'
+      },
+      {
+        id: 2,
+        followed: true,
+        name: 'Петька',
+        status: {text: 'Работаю из дома', symbol: true},
+        location: {city: 'Киев', country: 'Украина'},
+        avatar: 'https://tvcenter.ru/wp-content/uploads/2021/01/pajau5r6kry-e1611324219355.jpg'
+      },
+      {
+        id: 3,
+        followed: true,
+        name: 'Вовка',
+        status: {text: 'Ушел в магазин', symbol: false},
+        location: {city: 'Владимир', country: 'Россия'},
+        avatar: 'https://cityopen.ru/wp-content/uploads/2019/09/69358797_400416377283420_17787512026880791_n.jpg'
+      },
+      {
+        id: 4,
+        followed: true,
+        name: 'Том',
+        status: {text: 'Нет на месте', symbol: false},
+        location: {city: 'Минск', country: 'Беларусь'},
+        avatar: 'https://a.d-cd.net/afb2b6es-960.jpg'
+      },
+    ])
+  }
 
   return (
         <div className={style.wrap}>
@@ -16,7 +55,7 @@ const Users = props => {
                                     <div style={{backgroundImage: `url("${user.avatar}")`}} className={style.img}></div>
                                     <button
                                       className={style.follow_btn}
-                                      onClick={() => user.followed ? props.follow(user.id) : props.unfollow(user.id)}
+                                      onClick={() => user.followed ? props.unfollow(user.id) : props.follow(user.id)}
                                     >
                                       {user.followed ? 'Друг' : 'Дружить'}
                                     </button>

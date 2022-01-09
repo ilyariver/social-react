@@ -2,18 +2,20 @@
     list-style: none;
     padding: 0;
     position: fixed;
-    top: 110px;
-    width: 239px;
+    top: 70px;
+    width: 180px;
 }
 
 .item:hover {
     background-color: var(--color-gray-hover);
+    border-radius: 3px;
 }
 
 .text_content {
     display: flex;
     align-items: end;
     padding: 10px 20px;
+    font-size: 13px;
 }
 
 .image {
@@ -23,5 +25,6 @@
 
 .active {
     color: var(--color-white-active);
-    background-color: var(--color-gray-hover);
+    background-color: var(--color-gray-active);
+    border-radius: 3px;
 }

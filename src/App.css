@@ -1,18 +1,17 @@
+#root {
+    height: 100vh;
+}
 .App-wrap {
-  display: grid;
-  grid-template-areas:
-  "header header"
-  "main navbar";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 3fr 1fr;
-  /*grid-gap: 10px;*/
-  height: 100vh;
-  width: var(--width-content);
-  margin: 0 auto;
-  padding-top: 50px;
+    height: 100%;
 }
 
 .App-wrap-content {
-  grid-area: main;
-  background-color: var(--color-gray);
+    width: 80%;
+    padding-top: 50px;
+}
+
+.container-content {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
 }

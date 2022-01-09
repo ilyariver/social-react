@@ -1,12 +1,9 @@
 .header {
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0;
-    width: var(--width-content);
-    height: 110px;
-    grid-area: header;
+    width: 100%;
+    height: 50px;
     background: rgb(89,112,255);
     background: linear-gradient(90deg, rgba(89,112,255,1) 0%, rgba(233,130,255,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5970ff",endColorstr="#e982ff",GradientType=1);
@@ -14,10 +11,40 @@
     z-index: 1;
 }
 
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
 .image {
     height: 45px;
     position: relative;
+    margin-right: 20px;
     z-index: 2;
+}
+
+.nameSite {
+    font-weight: 700;
+    z-index: 2;
+}
+
+.auth, .login {
+    font-weight: bold;
+    z-index: 2;
+}
+
+.auth {
+    text-decoration: underline;
+}
+
+.auth:hover {
+    text-decoration: none;
 }
 
 .circles{

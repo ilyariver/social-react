@@ -17,12 +17,14 @@ html {
   /*colors*/
   --color-black: #181a1b;
   --color-gray: #212425;
-  --color-gray-hover: #2a2e2f;
-  --color-border: #434343;
+  --color-gray-hover: #202121;
+  --color-gray-active: #292d2e;
+  --color-border: #383838;
   --color-white-active: #a9a196;
   --color-white: #e8e6e3;
   --color-violet: #7604ab;
   --color-violet-lighten: #9700e0;
+  --color-blue: #5c70fe;
   --color-active: #00e00b;
   --color-absent: #e00000;
 
@@ -79,9 +81,9 @@ ul {
   overflow: hidden;
 }
 
-.fixed-container {
+.container {
   padding: 0 20px;
-  max-width: 1040px;
+  width: 1040px;
   margin: 0 auto;
 }
 

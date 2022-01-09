@@ -1,0 +1,11 @@
+.ladingWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.preloader {
+    width: 50px;
+    height: 50px;
+}

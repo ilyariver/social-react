@@ -1,15 +1,26 @@
 import style from './Header.module.css'
-import {Link} from "react-router-dom"
-import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-const Header = () => {
-	const headerOption = useSelector(state => state.header)
-
+const Header = props => {
+	const {
+		isAuth,
+		login,
+		loginText,
+		sayHelloText,
+		nameSite
+	} = props
 	return (
 		<header className={style.header}>
-			<Link to={headerOption.path}>
-				<img className={style.image} src={headerOption.mainLogo} alt={headerOption.alt}/>
-			</Link>
+			<div className={`container ${style.headerContainer}`}>
+				<Link
+					className={style.logoLink}
+					to={props.path}>
+					<img className={style.image} src={props.mainLogo} alt={props.alt}/>
+					<div className={style.nameSite}>{nameSite}</div>
+				</Link>
+				{!isAuth ? <Link to={'/login'} className={style.auth}>{loginText}</Link> :
+					<div className={style.login}>{sayHelloText}, {login || 'друг'}!</div>}
+			</div>
 			<ul className={style.circles}>
 				<li></li>
 				<li></li>

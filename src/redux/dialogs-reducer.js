@@ -4,7 +4,7 @@ const UPDATE_DIALOG_INPUT = 'UPDATE-DIALOG-INPUT'
 const initialState = {
 	newMessage: '',
 	messagesData: [],
-	dialogsData: [
+	dialogsUsers: [
 		{
 			id: 1,
 			userName: 'Димка',

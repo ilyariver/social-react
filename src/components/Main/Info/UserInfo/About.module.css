@@ -1,32 +1,144 @@
 .info {
     display: flex;
     margin-bottom: 20px;
-    border-bottom: 1px solid var(--color-border);
     padding: 0 20px 20px;
 }
 
 .image_wrap {
-    margin-top: -100px;
+    position: sticky;
+    top: 70px;
+    width: 30%;
+    height: 300px;
+    margin-right: 15px;
+    padding: 10px;
+    background-color: #292d2e;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
 }
 
 .image {
-    width: 150px;
+    min-width: 150px;
     margin-right: 20px;
-    border-radius: 50%;
-    border: 8px solid var(--color-white);
-    box-shadow: 6px 6px 9px 4px var(--color-black);
+    border-radius: 3px;
 }
 
 .about {
 
 }
 
-.list {
+.userInfoContent {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.userInfo {
+    width: 100%;
+}
+
+.nameInfo, .listLinks, .wallText {
+    background-color: var(--color-gray-active);
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+}
+
+.listLinks {
     list-style: none;
-    padding-left: 0;
+}
+
+.list:not(:last-child) {
+    margin-right: 50px;
+}
+
+.jobSearch, .jobNotSearch {
+    font-size: 10px;
+    font-weight: bold;
+    color: #7db6c5;
+}
+
+.jobSearch span {
+    font-weight: 400;
+    color: var(--color-white);
+}
+
+.jobNotSearch {
+    color: #e35d5d;
+}
+
+.title {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.logo {
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.facebook {
+    background-image: url("../../../../assets/images/facebook.svg");
+}
+
+.website {
+    background-image: url("../../../../assets/images/internet.svg");
+}
+
+.vk {
+    background-image: url("../../../../assets/images/vk.svg");
+}
+
+.twitter {
+    background-image: url("../../../../assets/images/twitter.svg");
+}
+
+.instagram {
+    background-image: url("../../../../assets/images/instagram.svg");
+}
+
+.youtube {
+    background-image: url("../../../../assets/images/youtube.svg");
+}
+
+.github {
+    background-image: url("../../../../assets/images/github.svg");
+    background-color: var(--color-white);
+    border-radius: 50%;
+}
+
+.mainlink {
+    background-image: url("../../../../assets/images/internet.svg");
+}
+
+.link {
+    text-decoration: underline;
+}
+
+.link:hover {
+    text-decoration: none;
+}
+
+.name {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.status {
+    margin-bottom: 11px;
 }
 
 .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
     font-weight: 700;
 }
 

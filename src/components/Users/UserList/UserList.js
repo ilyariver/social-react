@@ -79,7 +79,7 @@ const UserList = () => {
 	return (
 		<ul className={style.user_list}>
 			{
-				dialogs.dialogsData.map(item => {
+				dialogs.dialogsUsers.map(item => {
 					const userStyles = {
 						backgroundImage: `url(${item.avatar})`,
 					}

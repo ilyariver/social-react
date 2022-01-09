@@ -18,8 +18,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(addDialogActionCreator())
 		},
 		changeInput(textValueInput) {
-			const loading = true
-			dispatch(updateNewDialogActionCreator(textValueInput, loading))
+			dispatch(updateNewDialogActionCreator(textValueInput))
 		}
 	}
 }

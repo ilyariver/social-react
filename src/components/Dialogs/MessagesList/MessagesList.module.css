@@ -1,15 +1,15 @@
 .messages {
-    grid-area: m;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
+    height: 100%;
     padding: 25px 50px;
 }
 
 .message {
-    background-color: var(--color-black);
-    border-radius: 10px;
+    background-color: var(--color-gray-active);
+    border-radius: 3px;
     padding: 15px 30px;
     margin-bottom: 10px;
 }

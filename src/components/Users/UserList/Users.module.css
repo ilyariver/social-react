@@ -2,6 +2,28 @@
     padding: 20px 40px;
 }
 
+.countPages {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.numberPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #43434300;
+}
+
+.startPage {
+    border: 1px solid var(--color-border);
+    font-weight: bold;
+}
+
 .list {
 
 }
@@ -9,9 +31,9 @@
 .item {
     display: flex;
     margin-bottom: 10px;
-    background-color: var(--color-gray-hover);
+    background-color: var(--color-gray-active);
     padding: 20px 40px;
-    border-radius: 45px;
+    border-radius: 10px;
 }
 
 .image_wrap {
@@ -21,9 +43,8 @@
 }
 
 .img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -31,7 +52,10 @@
 }
 
 .follow_btn {
-    background-color: #9700e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-blue);
     width: 80px;
     height: 30px;
     border: none;
@@ -40,8 +64,12 @@
     border-radius: 5px;
 }
 
+.addUserBtn {
+    width: 15px;
+}
+
 .follow_btn:hover {
-    background-color: rgba(164, 30, 225, 0.69);
+    background-color: rgb(121, 139, 255);
 }
 
 .follow_btn:active {

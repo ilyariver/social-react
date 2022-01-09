@@ -2,20 +2,14 @@ import sendIcon from '../assets/images/send-icon.svg'
 
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_INPUT = 'UPDATE-POST-INPUT'
+const SET_USER_PROFILE = 'SET-USER-PROFILE'
 
 const initialState = {
 	wallText: '',
 	postMessage: [],
 	newPostText: '',
 	sendButtonImage: sendIcon,
-	profile: {
-		userName: 'Мистер Бин',
-		avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxezpAgR2zyrvSyxP6i-Ar02oVtTFZxPrBxACJnhYx9issQEQKzNFDY-m-QPcJLoj8RY&usqp=CAU',
-		age: 25,
-		colorHand: 'Лысэвато-черные',
-		colorFoodHair: 'Белые',
-		colorBeard: 'Густая',
-	}
+	profile: null,
 }
 
 const wallPageReducer = (state = initialState, action) => {
@@ -24,7 +18,7 @@ const wallPageReducer = (state = initialState, action) => {
 			const newPost = {
 				id: state.postMessage.length + 1,
 				message: state.newPostText,
-				name: state.profile.userName,
+				name: state.profile.fullName,
 				like: 0,
 				image: state.profile.avatar,
 			}
@@ -39,10 +33,16 @@ const wallPageReducer = (state = initialState, action) => {
 				...state,
 				newPostText: action.text
 			}
+		case SET_USER_PROFILE:
+			return {
+				...state,
+				profile: action.profile,
+			}
 		default:
 			return state
 	}
 }
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updateNewPostActionCreator = textValue => ({type: UPDATE_POST_INPUT, text: textValue})
+export const setUserProfileActionCreator = profile => ({type: SET_USER_PROFILE, profile})
 export default wallPageReducer

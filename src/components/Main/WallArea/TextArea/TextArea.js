@@ -3,18 +3,18 @@ import style from './TextArea.module.css'
 
 const TextArea = props => {
 	const addPostToWall = () => {
-		props.addPostToWall()
+		props.addPostActionCreator()
 	}
 
 	const sendToPressKey = e => {
 		if (e.key === 'Enter') {
-			props.addPostToWall();
+			props.addPostActionCreator();
 		}
 	}
 
 	const onChangeInput = e => {
 		const textValue = e.target.value
-		props.onChangeInput(textValue)
+		props.updateNewPostActionCreator(textValue)
 	}
 
 	return (

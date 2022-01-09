@@ -1,8 +1,17 @@
 const FOLLOW_USER = 'FOLLOW_USER'
 const UNFOLLOW_USER = 'UNFOLLOW_USER'
 const SET_USERS = 'SET_USERS'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TOTAL_USERS = 'SET_TOTAL_USERS'
+const SET_LOADING = 'SET_LOADING'
 
-const initialState = {users: []}
+const initialState = {
+    users: [],
+    count: 5,
+    page: 100,
+    startPage: 1,
+    loading: true
+}
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -30,7 +39,25 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users: action.users
+            }
+
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                startPage: action.page
+            }
+
+        case SET_TOTAL_USERS:
+            return {
+                ...state,
+                // page: action.total
+            }
+
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: action.load
             }
 
         default:
@@ -39,7 +66,10 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const followActionCreator = userId => ({type: FOLLOW_USER, userId})
-export const unfollowActionCreator = userId => ({type: UNFOLLOW_USER, userId})
-export const setUsersActionCreator = users => ({type: SET_USERS, users})
+export const follow = userId => ({type: FOLLOW_USER, userId})
+export const unfollow = userId => ({type: UNFOLLOW_USER, userId})
+export const setUsers = users => ({type: SET_USERS, users})
+export const setCurrentPage = page => ({type: SET_CURRENT_PAGE, page})
+export const getTotalUsersCount = total => ({type: SET_TOTAL_USERS, total})
+export const setLoading = load => ({type: SET_LOADING, load})
 export default usersReducer

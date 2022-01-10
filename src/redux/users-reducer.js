@@ -8,7 +8,7 @@ const SET_FETCHING = 'SET_FETCHING'
 
 const initialState = {
     users: [],
-    count: 10,
+    count: 12,
     page: 2000,
     startPage: 1,
     loading: true,

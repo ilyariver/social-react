@@ -17,9 +17,13 @@ import Preloader from '../common/Preloader/Preloader'
 class UsersContainerComponents extends React.Component {
 
 	componentDidMount() {
+		const FIRST_PAGE = 1
+		const { startPage } = this.props
+		const count = this.props.count === FIRST_PAGE ? this.props.count : startPage * this.props.count
+
 		this.props.setLoading(true)
 		const url =
-			`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.startPage}&count=${this.props.count}`
+			`https://social-network.samuraijs.com/api/1.0/users?page=${startPage}&count=${count}`
 		axios.get(url)
 		.then(response => {
 			this.props.setUsers(response.data.items)
@@ -32,7 +36,8 @@ class UsersContainerComponents extends React.Component {
 
 	scrollHandler = e => {
 		const LOWER_BOUND = 100
-		if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < LOWER_BOUND) {
+		if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) <
+			LOWER_BOUND) {
 			console.log('scroll')
 			this.props.setFetching(true)
 			this.onPageChanged()
@@ -49,14 +54,18 @@ class UsersContainerComponents extends React.Component {
 	}
 
 	onPageChanged = () => {
-			const addedPages = this.props.startPage + 1
-			const url =
+		const addedPages = this.props.startPage + 1
+		const url =
 				`https://social-network.samuraijs.com/api/1.0/users?page=${addedPages}&count=${this.props.count}`
 			axios.get(url)
 				.then(response => {
 					if (this.props.fetching) {
+						console.log('fetching')
+						this.props.setCurrentPage(addedPages)
+						console.log(addedPages)
 						this.props.setUsers([...this.props.users, ...response.data.items])
 						this.props.setFetching(false)
+						this.props.setLoading(false)
 					}
 				})
 	}
@@ -82,6 +91,7 @@ class UsersContainerComponents extends React.Component {
 					unfollow={unfollow}
 					startPage={startPage}
 					noLogo={noLogo}
+					loading={loading}
 					onPageChanged={this.onPageChanged}
 				/>}
 			</>

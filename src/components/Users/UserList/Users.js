@@ -2,6 +2,7 @@ import React from 'react'
 import style from './Users.module.css'
 import addUserImg from '../../../assets/images/add-user.svg'
 import {Link} from 'react-router-dom'
+import Preloader from '../../common/Preloader/Preloader'
 
 const Users = props => {
 	console.log(props)
@@ -15,7 +16,11 @@ const Users = props => {
 							<li
 								key={user.name + i}
 								className={style.item}>
+
 								<div className={style.image_wrap}>
+									<div className={style.userStatusContent}>
+										<span className={style.statusText}>{user.status || ''}</span>
+									</div>
 									<Link
 										to={`/profile/${user.id}`}
 										style={{
@@ -27,9 +32,6 @@ const Users = props => {
 								<div className={style.content}>
 									<div className={style.mainContent}>
 										<Link to={`/profile/${user.id}`} className={style.userName}>{user.name}</Link>
-										<div className={style.userStatusContent}>
-											<div className={style.statusText}>{user.status || ''}</div>
-										</div>
 									</div>
 									<div className={style.location}>
 										<button
@@ -47,6 +49,7 @@ const Users = props => {
 					})
 				}
 			</ul>
+			{!props.loading && <Preloader/>}
 		</div>
 	)
 }

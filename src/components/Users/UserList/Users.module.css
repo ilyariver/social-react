@@ -27,14 +27,18 @@
 .list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .item {
+    position: relative;
     width: calc(100% / 4 - 15px);
     min-height: 160px;
     margin-bottom: 20px;
     border-radius: 3px;
+}
+
+.item:not(:nth-child(4n)) {
+    margin-right: 15px;
 }
 
 .image_wrap {
@@ -101,8 +105,14 @@
 }
 
 .userStatusContent {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--color-black);
 }
 
 .statusText {

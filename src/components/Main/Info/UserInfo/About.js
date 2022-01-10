@@ -4,7 +4,8 @@ import TextArea from '../../WallArea/TextArea/TextArea'
 import Posts from '../../WallArea/Posts/Posts'
 
 const About = props => {
-	const { profile, wallPage, updateNewPostActionCreator, addPostActionCreator } = props
+	console.log('props',props)
+	const { profile, wallPage, updateNewPostActionCreator, addPostActionCreator, noLogo } = props
 	if (!profile) return <Preloader />
 	const {
 		facebook,
@@ -31,7 +32,7 @@ const About = props => {
 			<div className={style.image_wrap}>
 				{profile.photos.large ? <img className={style.image} src={profile.photos.large} alt={profile.fullName}/> :
 					<img style={{width: '200px', borderRadius: '3px'}}
-					     src="https://www.pcfix.lt/wp-content/uploads/2019/10/default-user-image.png"
+					     src={noLogo}
 					     alt={profile.fullName}/>  }
 			</div>
 			<div className={style.userInfoContent}>

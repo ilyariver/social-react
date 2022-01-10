@@ -9,6 +9,7 @@ import {
 	setCurrentPage,
 	getTotalUsersCount,
 	setLoading,
+	setFetching,
 } from '../../redux/users-reducer'
 import Preloader from '../common/Preloader/Preloader'
 
@@ -21,11 +22,21 @@ class UsersContainerComponents extends React.Component {
 			`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.startPage}&count=${this.props.count}`
 		axios.get(url)
 		.then(response => {
-			console.log(response)
 			this.props.setUsers(response.data.items)
 			this.props.getTotalUsersCount(response.data.totalCount)
 			this.props.setLoading(false)
 		})
+
+		document.addEventListener('scroll', this.scrollHandler)
+	}
+
+	scrollHandler = e => {
+		const LOWER_BOUND = 100
+		if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < LOWER_BOUND) {
+			console.log('scroll')
+			this.props.setFetching(true)
+			this.onPageChanged()
+		}
 	}
 
 	getCountPages() {
@@ -37,50 +48,54 @@ class UsersContainerComponents extends React.Component {
 		return pages
 	}
 
-	onPageChanged = pageNumber => {
-		this.props.setLoading(true)
-		this.props.setCurrentPage(pageNumber)
-		const url =
-			`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.count}`
-		axios.get(url)
-		.then(response => {
-			this.props.setUsers(response.data.items)
-			this.props.setLoading(false)
-		})
-		.catch(error => {
-			alert('Ошибка, ёбана', error)
-		})
+	onPageChanged = () => {
+			const addedPages = this.props.startPage + 1
+			const url =
+				`https://social-network.samuraijs.com/api/1.0/users?page=${addedPages}&count=${this.props.count}`
+			axios.get(url)
+				.then(response => {
+					if (this.props.fetching) {
+						this.props.setUsers([...this.props.users, ...response.data.items])
+						this.props.setFetching(false)
+					}
+				})
 	}
 
 	render() {
 		const countPages = this.getCountPages()
+		const {
+			users,
+			follow,
+			unfollow,
+			startPage,
+			loading,
+			noLogo
+		} = this.props
 
 		return (
 			<>
-				{this.props.loading && <Preloader />}
-				{!this.props.loading && <Users
+				{loading && <Preloader />}
+				{!loading && <Users
 					countPages={countPages}
-					users={this.props.users}
-					follow={this.props.follow}
-					unfollow={this.props.unfollow}
-					startPage={this.props.startPage}
+					users={users}
+					follow={follow}
+					unfollow={unfollow}
+					startPage={startPage}
+					noLogo={noLogo}
 					onPageChanged={this.onPageChanged}
 				/>}
-				</>
+			</>
 		)
 	}
 }
 
 const mapStateToProps = state => {
-	return {
-		users: state.usersPage.users,
-		count: state.usersPage.count,
-		page: state.usersPage.page,
-		startPage: state.usersPage.startPage,
-		loading: state.usersPage.loading
-	}
+	const { users, count, page, startPage, loading, fetching } = state.usersPage
+	const noLogo = state.wallPage.noLogo
+
+	return { users, count, page, startPage, loading, fetching, noLogo }
 }
 
 export default connect(mapStateToProps, {
-	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading})
-		(UsersContainerComponents)
+	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching,
+})(UsersContainerComponents)

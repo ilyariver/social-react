@@ -6,6 +6,10 @@
     width: 180px;
 }
 
+.item {
+    margin-bottom: 10px;
+}
+
 .item:hover {
     background-color: var(--color-gray-hover);
     border-radius: 3px;

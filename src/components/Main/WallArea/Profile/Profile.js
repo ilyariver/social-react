@@ -3,6 +3,7 @@ import About from '../../Info/UserInfo/About'
 
 const Profile = props => {
 	const { wallPage, profile, updateNewPostActionCreator, addPostActionCreator } = props
+	console.log('===',wallPage.noLogo)
 	return (
 		<main className={style.main}>
 			<div className={style.about}>
@@ -11,6 +12,7 @@ const Profile = props => {
 				<About
 					profile={profile}
 					wallPage={wallPage}
+					noLogo={wallPage.noLogo}
 					updateNewPostActionCreator={updateNewPostActionCreator}
 					addPostActionCreator={addPostActionCreator}
 				/>

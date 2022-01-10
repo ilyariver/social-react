@@ -9,6 +9,7 @@ const initialState = {
 	postMessage: [],
 	newPostText: '',
 	sendButtonImage: sendIcon,
+	noLogo: 'https://www.pcfix.lt/wp-content/uploads/2019/10/default-user-image.png',
 	profile: null,
 }
 

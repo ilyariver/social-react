@@ -25,51 +25,57 @@
 }
 
 .list {
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .item {
-    display: flex;
-    margin-bottom: 10px;
-    background-color: var(--color-gray-active);
-    padding: 20px 40px;
-    border-radius: 10px;
+    width: calc(100% / 4 - 15px);
+    min-height: 160px;
+    margin-bottom: 20px;
+    border-radius: 3px;
 }
 
 .image_wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .img {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    min-height: 160px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 50%;
+    border-radius: 3px;
+}
+
+.location {
 }
 
 .follow_btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-blue);
-    width: 80px;
-    height: 30px;
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 13px;
 }
 
 .addUserBtn {
-    width: 15px;
+    width: 25px;
 }
 
 .follow_btn:hover {
-    background-color: rgb(121, 139, 255);
+    /*background-color: rgb(121, 139, 255);*/
 }
 
 .follow_btn:active {
@@ -79,8 +85,8 @@
 .content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding-left: 40px;
 }
 
 .mainContent {
@@ -90,6 +96,7 @@
 }
 
 .userName {
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -115,10 +122,6 @@
 
 .userAbsent {
     background-color: var(--color-absent);
-}
-
-.location {
-    width: 20%;
 }
 
 .country {

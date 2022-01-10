@@ -4,20 +4,10 @@ import addUserImg from '../../../assets/images/add-user.svg'
 import {Link} from 'react-router-dom'
 
 const Users = props => {
-	// const useRefElement =
+	console.log(props)
 	return (
 		<div className={style.wrap}>
-			<div className={style.countPages}>
-				{
-					props.countPages.map(pageNumber => {
-						return <span
-							onClick={() => props.onPageChanged(pageNumber)}
-							key={pageNumber}
-							className={`${style.numberPage} ${props.startPage === pageNumber ? style.startPage : ''}`}>
-								{pageNumber}</span>
-					})
-				}
-			</div>
+			<div className={style.totalCountUsers}>16521 Зарегестрированных пользователей</div>
 			<ul className={style.list}>
 				{
 					props.users.map((user, i) => {
@@ -30,7 +20,7 @@ const Users = props => {
 										to={`/profile/${user.id}`}
 										style={{
 											backgroundImage: `url("${user.photos.large ?
-												user.photos.large : 'https://cdn-icons-png.flaticon.com/512/306/306473.png'}")`
+												user.photos.large : props.noLogo}")`
 										}}
 										className={style.img}/>
 								</div>
@@ -56,7 +46,6 @@ const Users = props => {
 						)
 					})
 				}
-				{/*<li ref={useRefElement}></li>*/}
 			</ul>
 		</div>
 	)

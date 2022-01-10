@@ -4,13 +4,15 @@ const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS = 'SET_TOTAL_USERS'
 const SET_LOADING = 'SET_LOADING'
+const SET_FETCHING = 'SET_FETCHING'
 
 const initialState = {
     users: [],
-    count: 5,
-    page: 100,
+    count: 10,
+    page: 2000,
     startPage: 1,
-    loading: true
+    loading: true,
+    fetching: true,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -51,13 +53,19 @@ const usersReducer = (state = initialState, action) => {
         case SET_TOTAL_USERS:
             return {
                 ...state,
-                // page: action.total
+                page: action.total
             }
 
         case SET_LOADING:
             return {
                 ...state,
                 loading: action.load
+            }
+
+        case SET_FETCHING:
+            return {
+                ...state,
+                fetching: action.fetch
             }
 
         default:
@@ -72,4 +80,5 @@ export const setUsers = users => ({type: SET_USERS, users})
 export const setCurrentPage = page => ({type: SET_CURRENT_PAGE, page})
 export const getTotalUsersCount = total => ({type: SET_TOTAL_USERS, total})
 export const setLoading = load => ({type: SET_LOADING, load})
+export const setFetching = fetch => ({type: SET_FETCHING, fetch})
 export default usersReducer

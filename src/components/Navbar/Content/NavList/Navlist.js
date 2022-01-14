@@ -1,14 +1,17 @@
 import React from 'react'
 import style from './Navlist.module.css'
 import { NavLink } from 'react-router-dom'
-import {useSelector} from 'react-redux'
+import profile from '../../../../assets/images/profile-icon.svg'
+import message from '../../../../assets/images/message-icon.svg'
+import news from '../../../../assets/images/news-icon.svg'
+import music from '../../../../assets/images/music-icon.svg'
+import users from '../../../../assets/images/people-icon.svg'
 
-const NavList = () => {
-	const optionsNavMenuList = useSelector(state => state.optionsNavMenu)
+const NavList = props => {
 
 	return (
 		<ul className={style.list}>
-			{optionsNavMenuList.map(menuItem => {
+			{props.optionsNavMenuList.map(menuItem => {
 				return <li
 					key={menuItem.name}
 					className={style.item}>

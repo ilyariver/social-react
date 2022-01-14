@@ -5,7 +5,7 @@ import music from '../assets/images/music-icon.svg'
 import users from '../assets/images/people-icon.svg'
 
 const initialState = [
-	{name: 'Мой профиль', link: '/profile', img: profile,},
+	{name: 'Мой профиль', link: `/profile/`, img: profile,},
 	{name: 'Сообщения', link: '/dialogs', img: message,},
 	{name: 'Мои новости', link: '/news', img: news,},
 	{name: 'Моя музыка', link: '/music', img: music,},

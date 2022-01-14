@@ -6,22 +6,14 @@ import {
 	updateNewPostActionCreator,
 	setUserProfileActionCreator
 } from '../../redux/wallpage-reducer'
-import * as axios from 'axios'
 import {withRouter} from 'react-router-dom'
+import {setApi} from '../../api/api'
 
 class ProfileContainer extends React.Component {
 	componentDidMount() {
 		const userId = this.props.match.params.userId || 2
 		// const userId = this.props.match.params.userId || this.props.auth
-		const url =
-			`https://social-network.samuraijs.com/api/1.0/profile/${userId}`
-		axios.get(url)
-		.then(response => {
-			this.props.setUserProfileActionCreator(response.data)
-		})
-		.catch(error => {
-			alert('Нет такого ниггера')
-		})
+		setApi.userProfile(userId).then(data => this.props.setUserProfileActionCreator(data))
 	}
 
 	render() {

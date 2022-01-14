@@ -10,6 +10,8 @@ const initialState = {
 	newPostText: '',
 	sendButtonImage: sendIcon,
 	noLogo: 'https://www.pcfix.lt/wp-content/uploads/2019/10/default-user-image.png',
+	changeAvatarText: 'Сменить фото',
+	addUserText: 'Добавить в друзья',
 	profile: null,
 }
 

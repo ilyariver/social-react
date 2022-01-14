@@ -1,5 +1,4 @@
 import React from 'react'
-import * as axios from 'axios'
 import Users from './UserList/Users'
 import {connect} from 'react-redux'
 import {
@@ -10,82 +9,77 @@ import {
 	getTotalUsersCount,
 	setLoading,
 	setFetching,
+	isFollowingFetch,
 } from '../../redux/users-reducer'
 import Preloader from '../common/Preloader/Preloader'
+import {setApi} from '../../api/api'
 
 
 class UsersContainerComponents extends React.Component {
-
 	componentDidMount() {
 		const FIRST_PAGE = 1
-		const { startPage } = this.props
-		const count = this.props.count === FIRST_PAGE ? this.props.count : startPage * this.props.count
-
+		const COUNT_ON_PAGE = 20
+		this.props.setCurrentPage(FIRST_PAGE)
 		this.props.setLoading(true)
-		const url =
-			`https://social-network.samuraijs.com/api/1.0/users?page=${startPage}&count=${count}`
-		axios.get(url)
-		.then(response => {
-			this.props.setUsers(response.data.items)
-			this.props.getTotalUsersCount(response.data.totalCount)
+
+		setApi.getUsers(FIRST_PAGE,COUNT_ON_PAGE).then(data => {
+			this.props.setUsers(data.items)
+			this.props.getTotalUsersCount(data.totalCount)
 			this.props.setLoading(false)
 		})
-
 		document.addEventListener('scroll', this.scrollHandler)
 	}
 
-	scrollHandler = e => {
-		const LOWER_BOUND = 100
-		if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) <
-			LOWER_BOUND) {
-			console.log('scroll')
-			this.props.setFetching(true)
-			this.onPageChanged()
-		}
+	componentWillUnmount() {
+		document.removeEventListener('scroll', this.scrollHandler)
 	}
 
-	getCountPages() {
-		const pagesCount = Math.ceil(this.props.page / this.props.count)
-		let pages = []
-		for (let i = 1; i <= pagesCount; i++) {
-			pages.push(i)
+
+	scrollHandler = e => {
+		const LOWER_BOUND = 500
+		if (e.target.documentElement.scrollHeight -
+			(e.target.documentElement.scrollTop + window.innerHeight) <
+			LOWER_BOUND) {
+			this.props.setFetching(true)
+			this.onPageChanged()
+			document.removeEventListener('scroll', this.scrollHandler)
 		}
-		return pages
 	}
 
 	onPageChanged = () => {
-		const addedPages = this.props.startPage + 1
-		const url =
-				`https://social-network.samuraijs.com/api/1.0/users?page=${addedPages}&count=${this.props.count}`
-			axios.get(url)
-				.then(response => {
-					if (this.props.fetching) {
-						console.log('fetching')
-						this.props.setCurrentPage(addedPages)
-						console.log(addedPages)
-						this.props.setUsers([...this.props.users, ...response.data.items])
-						this.props.setFetching(false)
-						this.props.setLoading(false)
-					}
-				})
+		const ONE_PAGE = 1
+		const addedPages = this.props.startPage + ONE_PAGE
+
+		setApi.getUsers(addedPages, this.props.count).then(data => {
+				if (this.props.fetching) {
+					this.props.setCurrentPage(addedPages)
+					this.props.setUsers([...this.props.users, ...data.items])
+					this.props.setLoading(false)
+					this.props.setFetching(false)
+					document.addEventListener('scroll', this.scrollHandler)
+				}
+			})
 	}
 
 	render() {
-		const countPages = this.getCountPages()
+		debugger
 		const {
 			users,
 			follow,
 			unfollow,
 			startPage,
 			loading,
-			noLogo
+			noLogo,
+			page,
+			textCountUsers,
 		} = this.props
 
 		return (
 			<>
 				{loading && <Preloader />}
 				{!loading && <Users
-					countPages={countPages}
+					textCountUsers={textCountUsers}
+					page={page}
 					users={users}
 					follow={follow}
 					unfollow={unfollow}
@@ -100,12 +94,12 @@ class UsersContainerComponents extends React.Component {
 }
 
 const mapStateToProps = state => {
-	const { users, count, page, startPage, loading, fetching } = state.usersPage
+	const { users, count, page, startPage, loading, fetching, textCountUsers,  } = state.usersPage
 	const noLogo = state.wallPage.noLogo
 
-	return { users, count, page, startPage, loading, fetching, noLogo }
+	return { users, count, page, startPage, loading, fetching, noLogo, textCountUsers,  }
 }
 
 export default connect(mapStateToProps, {
-	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching,
+	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching, isFollowingFetch
 })(UsersContainerComponents)

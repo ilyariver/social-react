@@ -6,3 +6,39 @@
     position: fixed;
     width: 239px;
 }
+
+.list {
+    list-style: none;
+    padding: 0;
+    position: fixed;
+    top: 70px;
+    width: 180px;
+}
+
+.item {
+    margin-bottom: 10px;
+}
+
+.item:hover {
+    background-color: var(--color-gray-hover);
+    border-radius: 3px;
+}
+
+.text_content {
+    display: flex;
+    align-items: end;
+    padding: 10px 20px;
+    font-size: 13px;
+}
+
+.image {
+    margin-right: 15px;
+    width: 15px;
+}
+
+.active {
+    color: var(--color-white-active);
+    background-color: var(--color-gray-active);
+    border-radius: 3px;
+}
+

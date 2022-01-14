@@ -1,9 +1,9 @@
-import s from './News.module.css'
+import style from './News.module.css'
 
-const News = (props) => {
+const News = props => {
 	return (
-		<div className={s.news_wrap}>News</div>
+		<div className="component-wrap">News</div>
 	);
 };
 
-export default News;
+export default News

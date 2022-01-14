@@ -4,8 +4,7 @@ import TextArea from '../../WallArea/TextArea/TextArea'
 import Posts from '../../WallArea/Posts/Posts'
 
 const About = props => {
-	console.log('props',props)
-	const { profile, wallPage, updateNewPostActionCreator, addPostActionCreator, noLogo } = props
+	const { auth, profile, wallPage, updateNewPostActionCreator, addPostActionCreator, noLogo } = props
 	if (!profile) return <Preloader />
 	const {
 		facebook,
@@ -16,6 +15,7 @@ const About = props => {
 		youtube,
 		github,
 		mainlink,
+
 	} = profile.contacts
 
 	const changeLinks = link => {
@@ -32,8 +32,12 @@ const About = props => {
 			<div className={style.image_wrap}>
 				{profile.photos.large ? <img className={style.image} src={profile.photos.large} alt={profile.fullName}/> :
 					<img style={{width: '200px', borderRadius: '3px'}}
+							 className={style.image}
 					     src={noLogo}
-					     alt={profile.fullName}/>  }
+					     alt={profile.fullName}/>}
+				{auth === profile.userId ? <button className={style.avatar_bottom_button}><span>{wallPage.changeAvatarText}</span></button> :
+					<button className={style.avatar_bottom_button}><span>{wallPage.addUserText}</span></button>
+				}
 			</div>
 			<div className={style.userInfoContent}>
 				<div className={style.userInfo}>

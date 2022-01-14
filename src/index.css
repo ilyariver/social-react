@@ -58,17 +58,18 @@ a {
   color: inherit;
 }
 
-
 ul {
   list-style-type: none;
   padding-left: 0;
   margin: 0;
 }
 
-.clearfix {
-  content: " ";
-  display: table;
-  clear: both;
+button {
+  height: 30px;
+  padding: 0 5px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .visually-hidden {
@@ -95,7 +96,3 @@ picture {
   display: inline-block;
 }
 
-code {
-  font-family: 'Quicksand', Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

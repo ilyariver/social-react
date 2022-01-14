@@ -1,7 +1,7 @@
-import style from './Dialog.module.css';
-import DialogSendMessageContainer from './DialogSendMessage/DialogSendMessageContainer';
-import UserList from '../Users/UserList/UserList'
+import style from './Dialog.module.css'
+import DialogSendMessageContainer from './DialogSendMessage/DialogSendMessageContainer'
 import MessagesListContainer from './MessagesList/MessagesListContainer'
+import UserList from '../Users/UserList/UserList'
 
 const Dialogs = () => {
 	return (

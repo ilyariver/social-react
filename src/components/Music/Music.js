@@ -3,7 +3,7 @@ import style from './Music.module.css'
 const Music = () => {
 
 	return (
-		<div className={style.music_wrap}>Music</div>
+		<div className="component-wrap">Music</div>
 	);
 };
 

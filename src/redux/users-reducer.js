@@ -5,7 +5,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS = 'SET_TOTAL_USERS'
 const SET_LOADING = 'SET_LOADING'
 const SET_FETCHING = 'SET_FETCHING'
-const SET_FOLLOWING_FETCH = 'SET_FOLLOWING_FETCH'
+const SET_FOLLOWING_FETCHING = 'SET_FOLLOWING_FETCHING'
 
 const initialState = {
     textCountUsers: 'зарегистрированных любителей REACT/REDUX',
@@ -15,7 +15,7 @@ const initialState = {
     startPage: 1,
     loading: true,
     fetching: true,
-    followingFetch: false
+    followFetching: [],
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -71,10 +71,12 @@ const usersReducer = (state = initialState, action) => {
                 fetching: action.fetch
             }
 
-        case SET_FOLLOWING_FETCH:
+        case SET_FOLLOWING_FETCHING:
             return {
                 ...state,
-                followingFetch: action.fetch
+                followFetching: action.fetch
+                  ? [...state.followFetching, action.userId]
+                  : state.followFetching.filter(id => id !== action.userId),
             }
 
         default:
@@ -91,5 +93,5 @@ export const getTotalUsersCount = total => ({type: SET_TOTAL_USERS, total})
 export const setLoading = load => ({type: SET_LOADING, load})
 export const setFetching = fetch => ({type: SET_FETCHING, fetch})
 export const followUser = fetch => ({type: SET_FETCHING, fetch})
-export const isFollowingFetch = fetch => ({type: SET_FOLLOWING_FETCH, fetch})
+export const setFollowUser = (fetch, userId) => ({type: SET_FOLLOWING_FETCHING, fetch, userId})
 export default usersReducer

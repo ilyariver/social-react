@@ -6,7 +6,6 @@ import Preloader from '../../common/Preloader/Preloader'
 import {setApi} from '../../../api/api'
 
 const Users = props => {
-
 	return (
 		<div className="component-wrap">
 			<div className={style.totalCountUsers}><span>{props.page}</span> {props.textCountUsers}</div>
@@ -17,7 +16,9 @@ const Users = props => {
 							<li
 								key={user.name + i}
 								className={style.item}>
-								<div className={`${style.image_wrap}` `${`props.followingFetch && 'loading'`}`}>
+								<div className={
+									`${style.image_wrap} ${props.followFetching.some(id => id === user.id) ? style.loading : ''}`
+								}>
 									{user.status && <div className={style.userStatusContent}>
 										<span className={style.statusText}>{user.status}</span>
 									</div>}
@@ -36,27 +37,30 @@ const Users = props => {
 									<div className={style.location}>
 										{user.followed ?
 											<button className={style.unfollow_btn} onClick={() => {
-												// props.isFollowingFetch(true)
+												props.setFollowUser(true, user.id)
 												setApi.unFollowFriend(user.id)
-													.then(response => {
-														if (response.data.resultCode === 0) {
-															props.unfollow(user.id)
-														}
-														// props.isFollowingFetch(false)
-													})
+												.then(response => {
+													debugger
+													if (response.data.resultCode === 0) {
+														props.unfollow(user.id)
+													}
+													props.setFollowUser(false, user.id)
+												})
 											}}>Удалить из друзей</button> :
-											<button className={style.follow_btn} onClick={() => {
-											// props.isFollowingFetch(true)
+											!props.followFetching.some(id => id === user.id)
+												? <button className={style.follow_btn} onClick={() => {
+												props.setFollowUser(true, user.id)
 												setApi.followFriend(user.id)
 													.then(response => {
+														debugger
 														if (response.data.resultCode === 0) {
 															props.follow(user.id)
 														}
-														// props.isFollowingFetch(false)
+														props.setFollowUser(false, user.id)
 													})
 											}}>
 												<img className={style.addUserBtn} src={addUserImg} alt="" />
-											</button>}
+											</button> : ''}
 									</div>
 								</div>
 							</li>

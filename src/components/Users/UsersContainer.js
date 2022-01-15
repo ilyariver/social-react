@@ -9,7 +9,7 @@ import {
 	getTotalUsersCount,
 	setLoading,
 	setFetching,
-	isFollowingFetch,
+	setFollowUser,
 } from '../../redux/users-reducer'
 import Preloader from '../common/Preloader/Preloader'
 import {setApi} from '../../api/api'
@@ -33,7 +33,6 @@ class UsersContainerComponents extends React.Component {
 	componentWillUnmount() {
 		document.removeEventListener('scroll', this.scrollHandler)
 	}
-
 
 	scrollHandler = e => {
 		const LOWER_BOUND = 500
@@ -62,7 +61,6 @@ class UsersContainerComponents extends React.Component {
 	}
 
 	render() {
-		debugger
 		const {
 			users,
 			follow,
@@ -72,12 +70,16 @@ class UsersContainerComponents extends React.Component {
 			noLogo,
 			page,
 			textCountUsers,
+			followFetching,
+			setFollowUser
 		} = this.props
 
 		return (
 			<>
 				{loading && <Preloader />}
 				{!loading && <Users
+					followFetching={followFetching}
+					setFollowUser={setFollowUser}
 					textCountUsers={textCountUsers}
 					page={page}
 					users={users}
@@ -94,12 +96,12 @@ class UsersContainerComponents extends React.Component {
 }
 
 const mapStateToProps = state => {
-	const { users, count, page, startPage, loading, fetching, textCountUsers,  } = state.usersPage
+	const { users, count, page, startPage, loading, fetching, textCountUsers, followFetching } = state.usersPage
 	const noLogo = state.wallPage.noLogo
 
-	return { users, count, page, startPage, loading, fetching, noLogo, textCountUsers,  }
+	return { users, count, page, startPage, loading, fetching, noLogo, textCountUsers, followFetching }
 }
 
 export default connect(mapStateToProps, {
-	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching, isFollowingFetch
+	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching, setFollowUser
 })(UsersContainerComponents)

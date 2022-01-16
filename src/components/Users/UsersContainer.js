@@ -10,6 +10,7 @@ import {
 	setLoading,
 	setFetching,
 	setFollowUser,
+	getUsers
 } from '../../redux/users-reducer'
 import Preloader from '../common/Preloader/Preloader'
 import {setApi} from '../../api/api'
@@ -19,14 +20,15 @@ class UsersContainerComponents extends React.Component {
 	componentDidMount() {
 		const FIRST_PAGE = 1
 		const COUNT_ON_PAGE = 20
-		this.props.setCurrentPage(FIRST_PAGE)
-		this.props.setLoading(true)
-
-		setApi.getUsers(FIRST_PAGE,COUNT_ON_PAGE).then(data => {
-			this.props.setUsers(data.items)
-			this.props.getTotalUsersCount(data.totalCount)
-			this.props.setLoading(false)
-		})
+		this.props.getUsers(FIRST_PAGE, COUNT_ON_PAGE)
+		// this.props.setCurrentPage(FIRST_PAGE)
+		// this.props.setLoading(true)
+		//
+		// setApi.getUsers(FIRST_PAGE,COUNT_ON_PAGE).then(data => {
+		// 	this.props.setUsers(data.items)
+		// 	this.props.getTotalUsersCount(data.totalCount)
+		// 	this.props.setLoading(false)
+		// })
 		document.addEventListener('scroll', this.scrollHandler)
 	}
 
@@ -40,24 +42,25 @@ class UsersContainerComponents extends React.Component {
 			(e.target.documentElement.scrollTop + window.innerHeight) <
 			LOWER_BOUND) {
 			this.props.setFetching(true)
-			this.onPageChanged()
+			this.uploadUsersParts()
 			document.removeEventListener('scroll', this.scrollHandler)
 		}
 	}
 
-	onPageChanged = () => {
+	uploadUsersParts = () => {
 		const ONE_PAGE = 1
 		const addedPages = this.props.startPage + ONE_PAGE
 
+		// this.props.getUsers(addedPages, this.props.count, 'lazy', this.scrollHandler, this.props.fetching, this.props.users)
 		setApi.getUsers(addedPages, this.props.count).then(data => {
 				if (this.props.fetching) {
 					this.props.setCurrentPage(addedPages)
 					this.props.setUsers([...this.props.users, ...data.items])
 					this.props.setLoading(false)
 					this.props.setFetching(false)
-					document.addEventListener('scroll', this.scrollHandler)
 				}
-			})
+				document.addEventListener('scroll', this.scrollHandler)
+		})
 	}
 
 	render() {
@@ -103,5 +106,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching, setFollowUser
+	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching, setFollowUser, getUsers
 })(UsersContainerComponents)

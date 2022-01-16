@@ -1,3 +1,5 @@
+import {setApi} from '../api/api'
+
 const FOLLOW_USER = 'FOLLOW_USER'
 const UNFOLLOW_USER = 'UNFOLLOW_USER'
 const SET_USERS = 'SET_USERS'
@@ -94,4 +96,30 @@ export const setLoading = load => ({type: SET_LOADING, load})
 export const setFetching = fetch => ({type: SET_FETCHING, fetch})
 export const followUser = fetch => ({type: SET_FETCHING, fetch})
 export const setFollowUser = (fetch, userId) => ({type: SET_FOLLOWING_FETCHING, fetch, userId})
+
+export const getUsers = (page, count, action = null, scrollHandler = null, fetch = null, users = null) => {
+    return dispatch => {
+
+        dispatch(setCurrentPage(page))
+        dispatch(setLoading(true))
+
+        setApi.getUsers(page, count).then(data => {
+            if (action === 'lazy') {
+                if (fetch) {
+                    dispatch(setCurrentPage(page))
+                    dispatch(setUsers([...users, ...data.items]))
+                    dispatch(setLoading(false))
+                    dispatch(setFetching(false))
+                }
+
+                document.addEventListener('scroll', scrollHandler)
+                return
+            }
+            dispatch(setUsers(data.items))
+            dispatch(getTotalUsersCount(data.totalCount))
+            dispatch(setLoading(false))
+        })
+    }
+}
+
 export default usersReducer

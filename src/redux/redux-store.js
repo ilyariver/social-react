@@ -1,4 +1,5 @@
-import {combineReducers, createStore} from 'redux'
+import {applyMiddleware, combineReducers, createStore} from 'redux'
+import thunk from 'redux-thunk'
 import dialogsReducer from './dialogs-reducer'
 import wallPageReducer from './wallpage-reducer'
 import authReducer from './auth-reducer'
@@ -11,10 +12,9 @@ let reducers = combineReducers({
 	wallPage: wallPageReducer,
 	optionsNavMenu: optionNavMenuReducer,
 	usersPage: usersReducer,
-
 })
 
-let store = createStore(reducers)
+let store = createStore(reducers, applyMiddleware(thunk))
 
 window.store = store
 

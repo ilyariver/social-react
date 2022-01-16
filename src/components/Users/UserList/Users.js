@@ -38,7 +38,7 @@ const Users = props => {
 										{user.followed ?
 											<button className={style.unfollow_btn} onClick={() => {
 												props.setFollowUser(true, user.id)
-												setApi.unFollowFriend(user.id)
+												setApi.unfollow(user.id)
 												.then(response => {
 													debugger
 													if (response.data.resultCode === 0) {
@@ -50,7 +50,7 @@ const Users = props => {
 											!props.followFetching.some(id => id === user.id)
 												? <button className={style.follow_btn} onClick={() => {
 												props.setFollowUser(true, user.id)
-												setApi.followFriend(user.id)
+												setApi.follow(user.id)
 													.then(response => {
 														debugger
 														if (response.data.resultCode === 0) {

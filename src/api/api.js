@@ -12,10 +12,10 @@ export const setApi = {
 	getUsers(page = 1, count = 20) {
 		return instance.get(`users?page=${page}&count=${count}`).then(response => response.data)
 	},
-	followFriend(id) {
+	follow(id) {
 		return instance.post(`follow/${id}`, {})
 	},
-	unFollowFriend(id) {
+	unfollow(id) {
 		return instance.delete(`follow/${id}`)
 	},
 	authMe() {

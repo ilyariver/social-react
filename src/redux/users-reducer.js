@@ -97,9 +97,9 @@ export const setFetching = fetch => ({type: SET_FETCHING, fetch})
 export const followUser = fetch => ({type: SET_FETCHING, fetch})
 export const setFollowUser = (fetch, userId) => ({type: SET_FOLLOWING_FETCHING, fetch, userId})
 
-export const getUsers = (page, count, action = null, scrollHandler = null, fetch = null, users = null) => {
-    return dispatch => {
-
+export const getUsers =
+  (page, count, action = null, scrollHandler = null, fetch = null, users = null) =>
+    dispatch => {
         dispatch(setCurrentPage(page))
         dispatch(setLoading(true))
 
@@ -119,7 +119,19 @@ export const getUsers = (page, count, action = null, scrollHandler = null, fetch
             dispatch(getTotalUsersCount(data.totalCount))
             dispatch(setLoading(false))
         })
+}
+
+export const followUsers = (id, action) => dispatch => {
+    dispatch(setFollowUser(true, id))
+    const getResponse = response => {
+        if (response.data.resultCode === 0) {
+            action === 'follow' ? dispatch(follow(id)) : dispatch(unfollow(id))
+        }
+        dispatch(setFollowUser(false, id))
     }
+    action === 'follow'
+      ? setApi.follow(id).then(response => getResponse(response))
+      : setApi.unfollow(id).then(response => getResponse(response))
 }
 
 export default usersReducer

@@ -10,7 +10,8 @@ import {
 	setLoading,
 	setFetching,
 	setFollowUser,
-	getUsers
+	getUsers,
+	followUsers
 } from '../../redux/users-reducer'
 import Preloader from '../common/Preloader/Preloader'
 import {setApi} from '../../api/api'
@@ -21,14 +22,6 @@ class UsersContainerComponents extends React.Component {
 		const FIRST_PAGE = 1
 		const COUNT_ON_PAGE = 20
 		this.props.getUsers(FIRST_PAGE, COUNT_ON_PAGE)
-		// this.props.setCurrentPage(FIRST_PAGE)
-		// this.props.setLoading(true)
-		//
-		// setApi.getUsers(FIRST_PAGE,COUNT_ON_PAGE).then(data => {
-		// 	this.props.setUsers(data.items)
-		// 	this.props.getTotalUsersCount(data.totalCount)
-		// 	this.props.setLoading(false)
-		// })
 		document.addEventListener('scroll', this.scrollHandler)
 	}
 
@@ -74,7 +67,8 @@ class UsersContainerComponents extends React.Component {
 			page,
 			textCountUsers,
 			followFetching,
-			setFollowUser
+			setFollowUser,
+			followUsers
 		} = this.props
 
 		return (
@@ -91,6 +85,7 @@ class UsersContainerComponents extends React.Component {
 					startPage={startPage}
 					noLogo={noLogo}
 					loading={loading}
+					followUsers={followUsers}
 					onPageChanged={this.onPageChanged}
 				/>}
 			</>
@@ -106,5 +101,8 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-	follow,	unfollow,	setUsers,	setCurrentPage,	getTotalUsersCount,	setLoading, setFetching, setFollowUser, getUsers
+	follow,	unfollow,	setUsers,
+	setCurrentPage,	getTotalUsersCount,	setLoading,
+	setFetching, setFollowUser, getUsers,
+	followUsers
 })(UsersContainerComponents)

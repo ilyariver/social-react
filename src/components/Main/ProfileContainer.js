@@ -2,21 +2,21 @@ import React from 'react'
 import Profile from './WallArea/Profile/Profile'
 import {connect} from 'react-redux'
 import {
-	addPostActionCreator,
-	updateNewPostActionCreator,
-	setUserProfileActionCreator
+	addPost,
+	setProfile,
+	updateNewPost,
 } from '../../redux/wallpage-reducer'
-import {withRouter} from 'react-router-dom'
-import {setApi} from '../../api/api'
+import {Redirect, withRouter} from 'react-router-dom'
 
 class ProfileContainer extends React.Component {
 	componentDidMount() {
-		const userId = this.props.match.params.userId || 2
-		// const userId = this.props.match.params.userId || this.props.auth
-		setApi.userProfile(userId).then(data => this.props.setUserProfileActionCreator(data))
+		// const userId = this.props.match.params.userId || 2
+		const userId = this.props.match.params.userId || this.props.auth
+		this.props.setProfile(userId)
 	}
 
 	render() {
+		if (!this.props.auth) return <Redirect to={'/login'}/>
 		return (
 			<Profile {...this.props}/>
 		)
@@ -27,14 +27,15 @@ const mapStateToProps = state => {
 	return {
 		wallPage: state.wallPage,
 		profile: state.wallPage.profile,
-		auth: state.auth.data.id,
+		authId: state.auth.data.id,
+		auth: state.auth.data.isAuth,
 	}
 }
 
 const WithUrlProfileContainer = withRouter(ProfileContainer)
 
 export default connect(mapStateToProps, {
-	addPostActionCreator,
-	updateNewPostActionCreator,
-	setUserProfileActionCreator,
+	addPost,
+	updateNewPost,
+	setProfile,
 })(WithUrlProfileContainer)

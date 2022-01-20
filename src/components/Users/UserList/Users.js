@@ -3,7 +3,6 @@ import style from './Users.module.css'
 import addUserImg from '../../../assets/images/add-user.svg'
 import {Link} from 'react-router-dom'
 import Preloader from '../../common/Preloader/Preloader'
-import {setApi} from '../../../api/api'
 
 const Users = props => {
 	return (
@@ -36,29 +35,10 @@ const Users = props => {
 									</div>
 									<div className={style.location}>
 										{user.followed ?
-											<button className={style.unfollow_btn} onClick={() => {
-												props.setFollowUser(true, user.id)
-												setApi.unfollow(user.id)
-												.then(response => {
-													debugger
-													if (response.data.resultCode === 0) {
-														props.unfollow(user.id)
-													}
-													props.setFollowUser(false, user.id)
-												})
-											}}>Удалить из друзей</button> :
+											<button className={style.unfollow_btn} onClick={() => props.followUsers(user.id, 'unfollow')}
+											>Удалить из друзей</button> :
 											!props.followFetching.some(id => id === user.id)
-												? <button className={style.follow_btn} onClick={() => {
-												props.setFollowUser(true, user.id)
-												setApi.follow(user.id)
-													.then(response => {
-														debugger
-														if (response.data.resultCode === 0) {
-															props.follow(user.id)
-														}
-														props.setFollowUser(false, user.id)
-													})
-											}}>
+												? <button className={style.follow_btn} onClick={() => props.followUsers(user.id, 'follow')}>
 												<img className={style.addUserBtn} src={addUserImg} alt="" />
 											</button> : ''}
 									</div>

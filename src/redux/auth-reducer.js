@@ -1,3 +1,5 @@
+import {setApi} from '../api/api'
+
 const SET_USER_DATA = 'SET-USER-DATA'
 
 const initialState = {
@@ -7,7 +9,7 @@ const initialState = {
 		alt: 'авка',
 		loginText: 'Залогиниться, бро',
 		sayHelloText: 'Привет',
-		nameSite: 'Axella Social',
+		nameSite: 'Axella Social Network',
 	},
 	data: {
 		id: null,
@@ -33,4 +35,14 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const setUserData = ({id, login, email}) => ({type: SET_USER_DATA, data: {id, login, email}})
+
+export const setAuth = () => dispatch => {
+		setApi.authMe().then(data => {
+			const {id, login, email} = data.data
+			if (data.resultCode === 0) {
+				dispatch(setUserData({id,	login, email}))
+			}
+		})
+}
+
 export default authReducer

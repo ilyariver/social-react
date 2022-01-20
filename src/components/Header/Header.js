@@ -18,7 +18,7 @@ const Header = props => {
 					<img className={style.image} src={props.mainLogo} alt={props.alt}/>
 					<div className={style.nameSite}>{nameSite}</div>
 				</Link>
-				{!isAuth ? <a target="_blank" href={'https://social-network.samuraijs.com/login'} className={style.auth}>{loginText}</a> :
+				{!isAuth ? <Link to={'/login'} className={style.auth}>{loginText}</Link> :
 					<div className={style.login}>{sayHelloText}, {login || 'друг'}!</div>}
 			</div>
 			<ul className={style.circles}>

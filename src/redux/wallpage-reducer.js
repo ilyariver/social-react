@@ -1,4 +1,5 @@
 import sendIcon from '../assets/images/send-icon.svg'
+import {setApi} from '../api/api'
 
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_INPUT = 'UPDATE-POST-INPUT'
@@ -45,7 +46,12 @@ const wallPageReducer = (state = initialState, action) => {
 			return state
 	}
 }
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostActionCreator = textValue => ({type: UPDATE_POST_INPUT, text: textValue})
-export const setUserProfileActionCreator = profile => ({type: SET_USER_PROFILE, profile})
+export const addPost = () => ({type: ADD_POST})
+export const updateNewPost = textValue => ({type: UPDATE_POST_INPUT, text: textValue})
+export const setUserProfile = profile => ({type: SET_USER_PROFILE, profile})
+
+export const setProfile = id => dispatch => {
+		setApi.userProfile(id).then(data => dispatch(setUserProfile(data)))
+}
+
 export default wallPageReducer

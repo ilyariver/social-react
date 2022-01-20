@@ -9,6 +9,7 @@ import Dialogs from './components/Dialogs/Dialogs'
 import News from './components/News/News'
 import Music from './components/Music/Music'
 import FriendsContainer from './components/Friends/FriendsContainer'
+import LoginContainer from './components/Main/LoginPage/LoginContainer'
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 					<Route path="/music" render={() => <Music/>}/>
 					<Route path="/friends" render={() => <FriendsContainer/>}/>
 					<Route path="/users" render={() => <UsersContainer/>}/>
+					<Route path="/login" render={() => <LoginContainer/>}/>
 				</div>
 			</div>
 		</div>

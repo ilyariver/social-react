@@ -2,20 +2,21 @@ import style from './Profile.module.css'
 import About from '../../Info/UserInfo/About'
 
 const Profile = props => {
-	const { auth, wallPage, profile, updateNewPostActionCreator, addPostActionCreator } = props
-	console.log('===',wallPage.noLogo)
+
+	const { authId, wallPage, profile, updateNewPost, addPost } = props
+	debugger
 	return (
 		<main className={style.main}>
 			<div className={style.about}>
 			</div>
 			<div>
 				<About
-					auth={auth}
+					authId={authId}
 					profile={profile}
 					wallPage={wallPage}
 					noLogo={wallPage.noLogo}
-					updateNewPostActionCreator={updateNewPostActionCreator}
-					addPostActionCreator={addPostActionCreator}
+					updateNewPost={updateNewPost}
+					addPost={addPost}
 				/>
 			</div>
 		</main>

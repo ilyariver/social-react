@@ -4,7 +4,7 @@ import TextArea from '../../WallArea/TextArea/TextArea'
 import Posts from '../../WallArea/Posts/Posts'
 
 const About = props => {
-	const { auth, profile, wallPage, updateNewPostActionCreator, addPostActionCreator, noLogo } = props
+	const { authId, profile, wallPage, updateNewPost, addPost, noLogo } = props
 	if (!profile) return <Preloader />
 	const {
 		facebook,
@@ -35,7 +35,7 @@ const About = props => {
 							 className={style.image}
 					     src={noLogo}
 					     alt={profile.fullName}/>}
-				{auth === profile.userId ? <button className={style.avatar_bottom_button}><span>{wallPage.changeAvatarText}</span></button> :
+				{authId === profile.userId ? <button className={style.avatar_bottom_button}><span>{wallPage.changeAvatarText}</span></button> :
 					<button className={style.avatar_bottom_button}><span>{wallPage.addUserText}</span></button>
 				}
 			</div>
@@ -96,8 +96,8 @@ const About = props => {
 					<TextArea
 						newPostText={wallPage.newPostText}
 						sendButtonImage={wallPage.sendButtonImage}
-						addPostActionCreator={addPostActionCreator}
-						updateNewPostActionCreator={updateNewPostActionCreator}
+						addPost={addPost}
+						updateNewPost={updateNewPost}
 					/>
 					<Posts
 						postMessage={wallPage.postMessage}
